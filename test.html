@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          
+          <div class="col-xs-12 input-area">
+            <h1>SVG to Data URI converter</h1>
+            <p>Paste or drag the contents of a valid SVG document source below and generate the data URI that should work cross-browser</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 input-area">
+            <div class="form-group">
+              <label for="input">Enter your SVG here (demos: 
+                <button id="circle" class="btn btn-xs">1</button>
+                <button id="use" class="btn btn-xs">2</button>
+                <button id="animate" class="btn btn-xs" title="only works in some browsers e.g. chrome">3</button>
+                <button id="trans" class="btn btn-xs">4</button>
+                )
+              </label>
+              <textarea id="input" placeholder="<svg ..."></textarea>
+            </div>
+      
+            <div class="form-group">
+              <button type="button" id="convert" class="btn btn-primary">Convert ...</button>
+              bg:
+              <input type="color" value="#ffffff" id="background-colour"/>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 input-area">
+            <div class="form-group">
+              <label for="output">CSS generated here</label>
+              <textarea id="output" placeholder=""></textarea>
+            </div>
+      
+            <div class="form-group">
+              <button type="button" id="copy" class="btn btn-default">Copy to clipboard</button>
+            </div>
+            
+          </div>
+      
+        </div>
+      </div>
+    <script src="/test.js"></script>
+</body>
+</html>
+
+

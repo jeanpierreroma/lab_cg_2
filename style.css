@@ -1,0 +1,95 @@
+/* Повне скидання CSS стилів */
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*:before, *:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus, :active {outline: none;}
+a:focus, a:active {outline: none;}
+
+nav, footer, header, aside {display: block;}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input, button, textarea {font-family: inherit;}
+
+/* Використовуємо для видалення "крестика з браузера Internet Explorer */
+input::-ms-clear {display: none;}
+button{cursor: pointer;}
+/* Видаляємо лишні відступи і пробіли в браузері Firefox*/
+button::-moz-focus-inner {padding: 0; border: 0;}
+a, a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+ul li {list-style: none;}
+img {vertical-align: top;}
+
+h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
+
+/* Кінець */
+
+.BackGround {
+    width: 100%;
+    height: 100%;
+}
+
+.BackGround-sky {
+    height: 42%;
+    background: linear-gradient(180deg, #0F27FF 0%, rgba(63, 243, 255, 0.2) 100%);
+}
+
+.BackGround-sky__sun {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 788px;
+    top: -38px;
+
+    background: radial-gradient(50% 50% at 50% 50%, #FFF500 0%, rgba(255, 248, 79, 0) 100%);
+}
+
+.BackGround-sky__cloudy_first {
+    position: absolute;
+    width: 185.79px;
+    height: 65.46px;
+    left: 180px;
+    top: 97px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='186' height='66' viewBox='0 0 186 66' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M108.731 23.5863C104.632 30.5558 97.9583 35.6358 90.1488 37.7318L1.48295 61.5296C-0.775233 62.1357 -0.336704 65.4613 2.00141 65.4613H184.879C185.722 65.4613 186.11 64.4119 185.47 63.863L177.117 56.7032C172.686 52.9054 170.899 46.8595 172.552 41.263C173.649 37.5503 174.047 33.7081 173.766 29.9222C173.811 29.2745 173.834 28.6206 173.834 27.9613C173.834 19.766 170.25 12.408 164.563 7.36987L164.334 6.96125C163.676 6.4777 163.007 6.02012 162.329 5.58826C158.955 3.17189 155.011 1.49983 150.739 0.812057C136.121 -2.36093 120.33 3.86823 112.205 17.6818L108.731 23.5863Z' fill='url(%23paint0_radial_35_498)'/%3e%3cdefs%3e%3cradialGradient id='paint0_radial_35_498' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(92.8945 32.7306) rotate(90) scale(32.7306 92.8945)'%3e%3cstop stop-color='white'/%3e%3cstop offset='1' stop-color='white' stop-opacity='0.7'/%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e ");
+}
+.BackGround-sky__cloudy_second {
+    position: absolute;
+    width: 185.79px;
+    height: 65.46px;
+    left: 522px;
+    top: 32px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='186' height='66' viewBox='0 0 186 66' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M108.731 23.5863C104.632 30.5558 97.9583 35.6358 90.1488 37.7318L1.48295 61.5296C-0.775233 62.1357 -0.336704 65.4613 2.00141 65.4613H184.879C185.722 65.4613 186.11 64.4119 185.47 63.863L177.117 56.7032C172.686 52.9054 170.899 46.8595 172.552 41.263C173.649 37.5503 174.047 33.7081 173.766 29.9222C173.811 29.2745 173.834 28.6206 173.834 27.9613C173.834 19.766 170.25 12.408 164.563 7.36987L164.334 6.96125C163.676 6.4777 163.007 6.02012 162.329 5.58826C158.955 3.17189 155.011 1.49983 150.739 0.812057C136.121 -2.36093 120.33 3.86823 112.205 17.6818L108.731 23.5863Z' fill='url(%23paint0_radial_35_498)'/%3e%3cdefs%3e%3cradialGradient id='paint0_radial_35_498' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(92.8945 32.7306) rotate(90) scale(32.7306 92.8945)'%3e%3cstop stop-color='white'/%3e%3cstop offset='1' stop-color='white' stop-opacity='0.7'/%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e ");
+}
+.BackGround-sky__cloudy_third {
+    position: absolute;
+    width: 185.79px;
+    height: 65.46px;
+    left: 522px;
+    top: 227px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='186' height='66' viewBox='0 0 186 66' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M108.731 23.5863C104.632 30.5558 97.9583 35.6358 90.1488 37.7318L1.48295 61.5296C-0.775233 62.1357 -0.336704 65.4613 2.00141 65.4613H184.879C185.722 65.4613 186.11 64.4119 185.47 63.863L177.117 56.7032C172.686 52.9054 170.899 46.8595 172.552 41.263C173.649 37.5503 174.047 33.7081 173.766 29.9222C173.811 29.2745 173.834 28.6206 173.834 27.9613C173.834 19.766 170.25 12.408 164.563 7.36987L164.334 6.96125C163.676 6.4777 163.007 6.02012 162.329 5.58826C158.955 3.17189 155.011 1.49983 150.739 0.812057C136.121 -2.36093 120.33 3.86823 112.205 17.6818L108.731 23.5863Z' fill='url(%23paint0_radial_35_498)'/%3e%3cdefs%3e%3cradialGradient id='paint0_radial_35_498' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(92.8945 32.7306) rotate(90) scale(32.7306 92.8945)'%3e%3cstop stop-color='white'/%3e%3cstop offset='1' stop-color='white' stop-opacity='0.7'/%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e ");
+}
+.BackGround-sky__cloudy_fourth {
+    position: absolute;
+    width: 185.79px;
+    height: 65.46px;
+    left: 1095px;
+    top: 217px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='186' height='66' viewBox='0 0 186 66' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M108.731 23.5863C104.632 30.5558 97.9583 35.6358 90.1488 37.7318L1.48295 61.5296C-0.775233 62.1357 -0.336704 65.4613 2.00141 65.4613H184.879C185.722 65.4613 186.11 64.4119 185.47 63.863L177.117 56.7032C172.686 52.9054 170.899 46.8595 172.552 41.263C173.649 37.5503 174.047 33.7081 173.766 29.9222C173.811 29.2745 173.834 28.6206 173.834 27.9613C173.834 19.766 170.25 12.408 164.563 7.36987L164.334 6.96125C163.676 6.4777 163.007 6.02012 162.329 5.58826C158.955 3.17189 155.011 1.49983 150.739 0.812057C136.121 -2.36093 120.33 3.86823 112.205 17.6818L108.731 23.5863Z' fill='url(%23paint0_radial_35_498)'/%3e%3cdefs%3e%3cradialGradient id='paint0_radial_35_498' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(92.8945 32.7306) rotate(90) scale(32.7306 92.8945)'%3e%3cstop stop-color='white'/%3e%3cstop offset='1' stop-color='white' stop-opacity='0.7'/%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e ");
+}
+
