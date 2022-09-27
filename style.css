@@ -46,16 +46,15 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
 }
 
 .BackGround-sky {
+    display: block;
     height: 42%;
     background: linear-gradient(180deg, #0F27FF 0%, rgba(63, 243, 255, 0.2) 100%);
 }
 
 .BackGround-sky__sun {
-    position: absolute;
     width: 400px;
     height: 400px;
-    left: 788px;
-    top: -38px;
+    /* margin-left: 50%; */
 
     background: radial-gradient(50% 50% at 50% 50%, #FFF500 0%, rgba(255, 248, 79, 0) 100%);
 }
@@ -95,11 +94,26 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
 
 .BackGround-sky__ship {
     position: absolute;
-    width: 500px;
-    height: 66px;
+    width: 100%;
+    height: 100%;
     left: -110px;
     top: 238px;
+    display: none;
     
     background: url('images/ship.png') no-repeat;
     transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.BackGround-sea {
+    width: 100%;
+    height: 58%;
+    background: linear-gradient(180deg, rgba(0, 87, 255, 0.63) 0%, rgba(0, 255, 148, 0.21) 100%);
+}
+.BackGround-sea__waves_first {
+    width: 1188px;
+    height: 25px;
+
+    background: #88BEFF;
+    background-blend-mode: luminosity;
+    border-radius: 35px;
 }
