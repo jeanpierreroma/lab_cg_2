@@ -5,12 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Background.css">
-    <title>FractalApp</title>
+    <link rel="stylesheet" href="MandelbrotFractal.css">
+    <title>MandelbrotFractal</title>
 </head>
 <body>
     <!-- BackGround -->
     <div class = "BackGround">
-
+        <div class="Navigation"></div>
+        <div class="data">
+            <div class="left_part">
+                <div class="formula"></div>
+                <div class="form">
+                    <div class="scale">
+                        <p>Scale</p>
+                        <input type="range" name="scale" id="" min="0" max="100">
+                    </div>
+                    <div class="complex_number">
+                        <p>C = <input type="number"> + <input type="number">i</p>
+                    </div>
+                    <div class="color">
+                        <span>Color:</span>
+                        <select name="color" id="skill">
+                            <option value="1 gama">red yellow white black</option>
+                            <option selected value="2 gama">red yellow white black</option>
+                            <option value="3 gama">red yellow white black</option>
+                            <option value="4 gama">red yellow white black</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="right_part"></div>
+        </div>
     </div>
 </body>
 </html>
