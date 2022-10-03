@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Background.css">
     <link rel="stylesheet" href="MandelbrotFractal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>MandelbrotFractal</title>
 </head>
 <body>
@@ -14,14 +17,17 @@
         <div class="Navigation"></div>
         <div class="data">
             <div class="left_part">
-                <div class="formula"></div>
+                <div class="formula">
+                    <span>f(z)=z*z+c</span>    
+                </div>
                 <div class="form">
                     <div class="scale">
-                        <p>Scale</p>
-                        <input type="range" name="scale" id="" min="0" max="100">
+                        <p><span class="scale-text">scale</span></p>
+                        <input type="range" name="scale" id="" min="0" max="100" step="1">
+                        <p><span class="number-zero">0</span><span class="number-hundred">100</span></p>
                     </div>
                     <div class="complex_number">
-                        <p>C = <input type="number"> + <input type="number">i</p>
+                        <p><span class="comple-number_const">C = </span><input type="number"><span class="comple-number_const"> + </span><input type="number"><span class="comple-number_const">i</span></p>
                     </div>
                     <div class="color">
                         <span>Color:</span>
