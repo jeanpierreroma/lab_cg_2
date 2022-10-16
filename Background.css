@@ -111,26 +111,43 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
     width: 180px;
     height: 80px;
 }
+
+.Extra_info {
+    display: inline-block;
+
+    margin-left: 440px;
+    margin-top: 40px;
+
+    padding-top: 10px;
+
+    width: 757px;
+    height: 60px;
+
+    /* border: 1px solid #000; */
+}
+
 .Cat {
     position: absolute;
-    left: 450px;
-    bottom: 0px;
+    right: 170px;
+    bottom: 20px;
 
     background: url("images/cat.png") no-repeat;
     background-size: 240px 240px;
-    background-position: 700px 0px;
-    width: 900px;
-    height: 240px;
+    background-position: -30px -30px;
+    width: 170px;
+    height: 200px;
+
+    /* border: 1px solid #000; */
 }
-.Cat span {
-    display: inline-block;
+.Extra_info span {
+    /* display: inline-block; */
 
     font-family: 'Chelsea Market';
     font-style: normal;
     font-weight: 400;
     font-size: 30px;
 
-    padding-top: 170px;
+    /* padding-top: 170px; */
 
     text-shadow: 1px 1px 4px #000;
     color: #fff;
