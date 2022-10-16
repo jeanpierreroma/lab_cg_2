@@ -49,14 +49,9 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
     font-display: swap;
 }
 
-.Navigation {
-    width: 100%;
-    height: 80px;
-}
-
 .data {
     width: 100%;
-    height: 550px;
+    height: 520px;
     display: flex;
     font-family: 'Chelsea Market';
 }
@@ -64,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
     width: 45%;
     height: 100%;
     display: inline-block;
-    margin-right: 148.4px;
+    margin-right: 10%;
 
     border: solid #FF974B;
     border-top-right-radius: 40px;
@@ -184,7 +179,24 @@ input[type=number]  {
     color: #fff;
 
     text-shadow: 1px 1px 4px #000;
-  }
+}
   input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-  }
+}
+
+.Nav_home {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_fractals {
+    color: #FF974B;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_colors {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_move {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
