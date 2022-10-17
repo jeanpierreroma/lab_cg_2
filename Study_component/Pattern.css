@@ -1,0 +1,110 @@
+/* Повне скидання CSS стилів */
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*:before, *:after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus, :active {outline: none;}
+a:focus, a:active {outline: none;}
+
+nav, footer, header, aside {display: block;}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input, button, textarea {font-family: inherit;}
+
+/* Використовуємо для видалення "крестика з браузера Internet Explorer */
+input::-ms-clear {display: none;}
+button{cursor: pointer;}
+/* Видаляємо лишні відступи і пробіли в браузері Firefox*/
+button::-moz-focus-inner {padding: 0; border: 0;}
+a, a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+ul li {list-style: none;}
+img {vertical-align: top;}
+
+h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
+
+/* Кінець */
+
+@font-face {
+    font-family: 'Chelsea Market';
+    src: url('../fonts/ChelseaMarket-Regular.woff2') format('woff2'),
+        url('../fonts/ChelseaMarket-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Chelsea Market';
+}
+
+.BackGround {
+    width: 100%;
+    height: 100%;
+    background: url("study_component.png") 0 0/100% 100% no-repeat;
+}
+.Left-arrow {
+    position: absolute;
+    left: 0px;
+    top: 630px;
+
+    background: url("../images/Left_arrow.png") no-repeat;
+    background-size: 180px 80px;
+    width: 300px;
+    height: 80px;
+    padding-top: 35px;
+}
+.Text {
+    width: 1000px;
+    height: 500px;
+
+    position: relative;
+    top: 125px;
+    margin: 0px auto;
+
+    background: rgba(237, 237, 237, 0.78);
+    border-radius: 73px;
+
+
+}
+.Text span {
+    font-size: 50px;
+
+    display: inline-block;
+    margin-left: 50px;
+    margin-bottom: 5px;
+}
+.Text p {
+    font-size: 25px;
+
+    display: inline-block;
+    margin-bottom: 40px;
+    margin-left: 50px;
+}
+
+.Parrot_statement {
+    margin-left: 310px;
+    position: relative;
+    top: 80px;
+}
+.Parrot_statement span {
+    font-size: 25px;
+
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}

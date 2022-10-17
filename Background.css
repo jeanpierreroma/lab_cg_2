@@ -40,6 +40,15 @@ h1, h2, h3, h4, h5, h6 {font-size: inherit; font-weight: 400;}
 
 /* Кінець */
 
+@font-face {
+    font-family: 'Chelsea Market';
+    src: url('../lab_cg_2/fonts/ChelseaMarket-Regular.woff2') format('woff2'),
+        url('../lab_cg_2/fonts/ChelseaMarket-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .BackGround {
     width: 100%;
     height: 100%;
