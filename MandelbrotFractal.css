@@ -57,7 +57,7 @@
 }
 .scale {
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 .scale-text {
     font-style: normal;
@@ -71,7 +71,7 @@
 }
 
 input[type=range]  {
-    width: 200px;
+    width: 400px;
     margin-top: 30px;
     -webkit-appearance: none;
     appearance: none;
@@ -79,10 +79,13 @@ input[type=range]  {
   input[type=range]::-webkit-slider-runnable-track {
     height: 7px;
     background-color: #FF974B;
+    border-radius: 10px;
+    border: 2px solid #FFBD8C;
   }
   input[type=range]::-webkit-slider-thumb {
     background: #FF974B;
     border-radius: 50%;
+    border: 2px solid #FFBD8C;
     cursor: pointer;
     width:25px;
     height: 25px;
@@ -94,7 +97,7 @@ input[type=range]  {
     text-shadow: 1px 1px 4px #000;
     font-size: 20px;
     
-    margin-right: 160px;
+    margin-right: 370px;
 }
 
 .number-hundred {
@@ -115,7 +118,7 @@ input[type=range]  {
 }
 
 input[type=number]  {
-    width: 60px;
+    width: 80px;
     height: 50px;
     align-items: center;
     border: 1px solid #000;
@@ -217,6 +220,8 @@ input[type="color"]::-webkit-color-swatch {
     width: 100px;
     height: 50px;
 
+    cursor: pointer;
+
     margin-top: 5px;
     margin-left: 480px;
 
@@ -226,5 +231,16 @@ input[type="color"]::-webkit-color-swatch {
     background: #FF974B;
     border: 3px solid #FFBD8C;
     border-radius: 20px;
+}
+.Button_use input:hover {
+    margin-top: -1px;
+    box-shadow: 1px 1px 4px #000;
+}
+.Button_use input:active {
+    margin-top: 1px;
+    box-shadow: 1px 1px 0px #000;
+
+    background: #FFBD8C;
+    border: 3px solid #FF974B;
 }
   
