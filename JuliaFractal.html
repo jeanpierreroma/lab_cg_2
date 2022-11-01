@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>JuliaFractal</title>
 </head>
-<body>
+<body onload="julia()" onkeydown="keyCommandProcessor()">
     <!-- BackGround -->
     <div class = "BackGround">
         <div class="Navigation">
@@ -28,31 +28,98 @@
                 <div class="form">
                     <div class="scale">
                         <p><span class="scale-text">scale</span></p>
-                        <input type="range" name="scale" id="" min="0" max="100" step="1">
+                        <input type="range" name="scale" id="zoomm" min="0" max="100" step="1" value="20">
                         <p><span class="number-zero">0</span><span class="number-hundred">100</span></p>
                     </div>
                     <div class="complex_number">
-                        <p><span class="comple-number_const">C = </span><input type="number"><span class="comple-number_const"> + </span><input type="number"><span class="comple-number_const">i</span></p>
+                        <p><span class="comple-number_const">C = </span><input type="text" id="cx" value="0.0"><span class="comple-number_const"> + </span>
+                            <input type="text" name="cy" id="cy" value="0.0" ><span class="comple-number_const">i</span></p>
                     </div>
                     <div class="Choose_color">
                         <span>Color:</span>
                         <div class="Color">
                             <label>
-                                <input type="color" value="#FF0000">
-                                <div class="circle"></div>
+                                <input type="color" value='#073c87' id="color_choose">
+                                <div class="circle" ></div>
                             </label>
                         </div>
                     </div>
                     <div class="Button_use">
-                        <input type="submit" value="Use">
+                        <button onclick="julia()" >Submit</button> 
+                        <button onclick="zoomin()" >Test</button> 
                     </div> 
                 </div>
             </div>
-            <div class="right_part"></div>
+            <div class="right_part">
+                <canvas id="jset_canvass" width="640" height="480" class="scale"></canvas>
+            </div>
+            
         </div>
         <div><a class="Right_arrow" href=""></a></div>
         <div><a class="Left_arrow" href="MandelbrotFractal.html"></a></div>
         <div><a class="Extra_info" href="Study_component/JuliaComponent.html"><span>Something is not clear, click me to learn more</span><div class="Cat"></div></a></div>
     </div>
+
+
+
+
+    <select id="method" name="method" onchange="selectMethod(); mandelbrot(); julia()">
+        <option value="lsm" selected="selected">Level Set Method (LSM)</option>
+        <option value="dem">Distance Estimator Method (DEM)</option>
+        <option value="bdm">Binary Decomposition Method (BDM)</option>
+        <option value="tdm">Trinary Decomposition Method (TDM)</option>
+        <option value="bdm2">Binary Decomposition Method II (BDM2)</option>
+    </select>
+    <span id="palette_chooser"><label for="palette">Palette</label>: <input type="number" id="palette" name="palette"
+                                                                            max="" min="0" value="0"
+                                                                            onchange="mandelbrot(); julia()"/></span>
+    <label for="iterations">Iterations</label>:
+    <input id="iterations" type="number" min="25" max="5000" value="100" step="25"/>
+    <span id="lsm-parameters">
+                <label for="lsm-threshold">threshold: </label>
+        <input id="lsm-threshold" name="lsm-threshold" value="100.00" type="number" step="100" min="1"
+               max="10000"/>&nbsp;
+    </span>
+    <span id="dem-parameters" style="display: none">
+        <label for="dem-threshold">threshold: </label>
+        <input id="dem-threshold" name="dem-threshold" value="0.2" type="number" step="0.01" min="0" max="3"/>&nbsp;
+        <label for="dem-overflow">overflow: </label>
+        <input id="dem-overflow" value="100000000000" type="number" step="100000000000" max="100000000000000" />
+    </span>
+    <button onclick="mandelbrot();">Redraw MSet</button>
+    <label for="autodraw">JSet mode: </label>
+    <select id="autodraw" name="autodraw">
+        <option value="off" selected="selected">Autodraw Julia Set Mode Off</option>
+        <option value="on">Autodraw Julia Set Mode On</option>
+    </select>
+<p>
+    <canvas id="mset_canvas" width="640" height="480" style="float:left"
+            onmousemove="handleMsetMouseMove(event, this)"
+            onclick="handleMsetMouseClick(event, this)"
+            onmousedown="handleMsetMouseClick(event, this)"
+            oncontextmenu="event.preventDefault()"
+    ></canvas>&nbsp;
+    <canvas id="jset_canvas" width="640" height="480"></canvas>
+</p>
+<!-- <p>
+    <label for="cx">cx</label>: <input type="text" name="cx" id="cx" value="0.0"/>
+    <label for="cy">cy</label>: <input type="text" name="cy" id="cy" value="0.0"/>&nbsp;
+    <button onclick="julia()">redraw julia set</button>
+</p> -->
+<p>
+    mset: <label for="x_min">x_min</label> = <input type="text" value="" name="x_min" id="x_min"/>
+    <label for="y_min">y_min</label> = <input type="text" value="" name="x_min" id="y_min"/>
+    <label for="x_max">x_max</label> = <input type="text" value="" name="x_max" id="x_max"/>
+    <label for="y_max">y_max</label> = <input type="text" value="" name="y_max" id="y_max"/>
+    <button onclick="init();mandelbrot()">Reset</button>
+</p>
+<p>
+    zoom: <label for="zoom_x">zoom_x</label> = <input type="text" value="" name="zoom_x" id="zoom_x"/>
+    <label for="zoom_y">zoom_y</label> = <input type="text" value="" name="zoom_y" id="zoom_y"/>
+    <label for="zoom_w">zoom_w</label> = <input type="text" value="" name="zoom_w" id="zoom_w"/>
+    <label for="zoom_h">zoom_h</label> = <input type="text" value="" name="zoom_h" id="zoom_h"/>
+</p>
+
+    <script type="application/x-javascript" src="JuliaFractal.js"></script>
 </body>
 </html>
