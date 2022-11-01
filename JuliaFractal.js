@@ -31,71 +31,23 @@ let colourPalettes =[getcolor()]
          return arr;
      }
  
-     function zoomin() {
-        var GFG = document.getElementById("jset_canvass");
-        var currWidth = GFG.clientWidth;
-        GFG.style.width = (currWidth + 100) + "px";
-    }
-      
-    function zoomout() {
-        var GFG = document.getElementById("jset_canvass");
-        var currWidth = GFG.clientWidth;
-        GFG.style.width = (currWidth - 100) + "px";
-    }
 
-    function draw(scale, translatePos) {
-        var canvas = document.getElementById("jset_canvass");
-        var context = canvas.getContext("2d");
-  
-        // clear canvas
-        context.clearRect(0, 0, canvas.width, canvas.height);
-  
-        context.save();
-        context.translate(translatePos.x, translatePos.y);
-        context.scale(scale, scale);
-        context.beginPath(); // begin custom shape
-        context.moveTo(-119, -20);
-        context.bezierCurveTo(-159, 0, -159, 50, -59, 50);
-        context.bezierCurveTo(-39, 80, 31, 80, 51, 50);
-        context.bezierCurveTo(131, 50, 131, 20, 101, 0);
-        context.bezierCurveTo(141, -60, 81, -70, 51, -50);
-        context.bezierCurveTo(31, -95, -39, -80, -39, -50);
-        context.bezierCurveTo(-89, -95, -139, -80, -119, -20);
-        context.closePath(); // complete custom shape
-        var grd = context.createLinearGradient(-59, -100, 81, 100);
-        grd.addColorStop(0, "#8ED6FF"); // light blue
-        grd.addColorStop(1, "#004CB3"); // dark blue
-        context.fillStyle = grd;
-        context.fill();
-  
-        context.lineWidth = 5;
-        context.strokeStyle = "#0000ff";
-        context.stroke();
-        context.restore();
-      }
+    // const selectElement = document.getElementById("zoomm");
 
+    // selectElement.addEventListener('change', (event) => {
+    //     var canvas = document.getElementById("jset_canvass");
 
-      var scale = 1.0;
-      var scaleMultiplier = 0.8;
-      var startDragOffset = {};
-      var mouseDown = false;
+    //     var translatePos = {
+    //         x: canvas.width / 2,
+    //         y: canvas.height / 2
+    //     };
+    //     var val=event.target.value;
+    //     console.log(val);
 
-    const selectElement = document.getElementById("zoomm");
+    //     scale /= scaleMultiplier;
+    //         draw(scale, translatePos);
 
-    selectElement.addEventListener('change', (event) => {
-        var canvas = document.getElementById("jset_canvass");
-
-        var translatePos = {
-            x: canvas.width / 2,
-            y: canvas.height / 2
-        };
-        var val=event.target.value;
-        console.log(val);
-
-        scale /= scaleMultiplier;
-            draw(scale, translatePos);
-
-    });
+    // });
 
  function toHSL(hex) {
      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -325,43 +277,6 @@ function setColourUsingLevelSetMethod(iterations, maxIterations, ctx) {
     }
 }
 
-function mandelbrotDrawingFuncLsm(ctx, maxIterations, pointColouringFunc, plane) {
-    const scalingFactor = getScalingFactors(plane)
-
-    for (let iy = 0; iy < yResolution; iy++) {
-        const cy = plane.y_min + iy * scalingFactor.y
-
-        for (let ix = 0; ix < xResolution; ix++) {
-            const cx = plane.x_min + ix * scalingFactor.x
-            const currentPoint = {x: 0.0, y: 0.0}
-            const iterations = computePoint(currentPoint, cx, cy, maxIterations)
-
-            pointColouringFunc(iterations, maxIterations, ctx, currentPoint)
-            ctx.fillRect(ix, iy, 1, 1)
-        }
-    }
-}
-
-function mandelbrotDrawingFuncDem(ctx, maxIterations, plane) {
-    const scalingFactor = getScalingFactors(plane)
-    const delta = document.getElementById('dem-threshold').value * scalingFactor.x
-
-    for (let iy = 0; iy < yResolution; iy++) {
-        const cy = plane.y_min + iy * scalingFactor.y
-
-        for (let ix = 0; ix < xResolution; ix++) {
-            const cx = plane.x_min + ix * scalingFactor.x
-            const currentPoint = {x: 0.0, y: 0.0}
-            const dist = computePointDem(currentPoint, cx, cy, maxIterations)
-            if (dist < delta) {
-                ctx.fillStyle = "#000000"
-            } else {
-                ctx.fillStyle = colourPalettes[paletteNumber][parseInt(dist * 100 % colourPalettes[paletteNumber].length)]
-            }
-            ctx.fillRect(ix, iy, 1, 1)
-        }
-    }
-}
 
 function computePointDem(point, cx, cy, maxIterations) {
     const huge = 100000.0
@@ -533,41 +448,6 @@ function handleMsetMouseMove(event, canvas) {
     }
 }
 
-function handleMsetMouseClick(event, canvas) {
-    function zoomIn(ctx) {
-        if (canvasBeforeZoomBox != null) {
-            ctx.putImageData(canvasBeforeZoomBox.imageData, canvasBeforeZoomBox.x, canvasBeforeZoomBox.y)
-        }
-        const {x, y, w, h} = getCurrentZoomWindow()
-        setZoomWindowTo(x, y, Math.round(w * 0.9), Math.round(h * 0.9))
-        drawZoomBox(ctx, getCurrentZoomWindow())
-    }
-
-    function zoomOut(ctx) {
-        if (canvasBeforeZoomBox != null) {
-            ctx.putImageData(canvasBeforeZoomBox.imageData, canvasBeforeZoomBox.x, canvasBeforeZoomBox.y)
-        }
-        const {x, y, w, h} = getCurrentZoomWindow()
-        setZoomWindowTo(x, y, Math.round(w * 1.5), Math.round(h * 1.5))
-        drawZoomBox(ctx, getCurrentZoomWindow())
-    }
-
-    switch (mode) {
-        case ZOOM_MODE:
-            let ctx = canvas.getContext("2d")
-            switch (event.button) {
-                case 0:
-                    zoomIn(ctx)
-                    break
-                case 2:
-                    zoomOut(ctx)
-                    break
-            }
-            break
-        default:
-            drawJuliaSetForCurrentC(event, canvas)
-    }
-}
 
 function drawZoomBox(ctx, dimensions) {
     canvasBeforeZoomBox = new CanvasRectangleSnapshot(

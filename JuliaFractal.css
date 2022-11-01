@@ -228,8 +228,8 @@ input[type="color"]::-webkit-color-swatch {
     border-radius: 50%;
 }
 
-.Button_use input{
-    width: 100px;
+button{
+    width: 120px;
     height: 50px;
 
     margin-top: 5px;
