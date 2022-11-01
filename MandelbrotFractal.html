@@ -28,8 +28,8 @@
                 <div class="form">
                     <div class="scale">
                         <p><span class="scale-text">scale</span></p>
-                        <input type="range" name="scale" id="" min="0" max="100" step="1">
-                        <p><span class="number-zero">0</span><span class="number-hundred">100</span></p>
+                        <input type="range" name="scale" id="myRange" min="1" max="5" step="1" value="1">
+                        <p><span class="number-zero">0</span><span class="number-hundred">5</span></p>
                     </div>
                     <div class="complex_number">
                         <p><span class="comple-number_const">C = </span><input type="number"><span class="comple-number_const"> + </span><input type="number"><span class="comple-number_const">i</span></p>
@@ -38,21 +38,30 @@
                         <span>Color:</span>
                         <div class="Color">
                             <label>
-                                <input type="color" value="#FF0000">
+                                <input type="color" value="#FF0000" id="myyColor">
                                 <div class="circle"></div>
                             </label>
                         </div>
                     </div>
                     <div class="Button_use">
-                        <input type="submit" value="Use">
+                        <input type="submit" value="Use" onclick="draw(450, 300, document.getElementById('myyColor').value, document.getElementById('myRange').value)">
                     </div> 
                 </div>
             </div>
-            <div class="right_part"></div>
+            <div class="right_part">
+                <div class="fractal_name">
+                    <span>Mandelbrot fractal</span>
+                </div>
+                <div class="fractal">
+                    <canvas width="450" height="300" id="canvas"></canvas>
+                </div>
+                <button class="download_b"><img width="50" height="50" src="images/download_button.png" alt=""></button>
+            </div>
         </div>
         <div><a class="Right_arrow" href="JuliaFractal.html"></a></div>
         <div><a class="Left_arrow" href="WelcomePage.html"></a></div>
         <div><a class="Extra_info" href="Study_component/MandelbrotComponent.html"><span>Something is not clear, click me to learn more</span><div class="Cat"></div></a></div>
     </div>
+    <script src="MandelbrotFractal.js"></script>
 </body>
 </html>
