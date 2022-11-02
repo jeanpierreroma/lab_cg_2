@@ -1,13 +1,3 @@
-//
-// JavaScript methods to draw Mandelbrot and Julia Sets
-//
-// version 1.5 - featuring LSM, DEM, BDM, TDM and BDM2 methods, iterations slider, colour palettes, auto draw julia set mode, and zoom mode
-//
-// (c) 2009-2022 Mike Harris; (c) 1987-1990 Mike Harris & Dan Grace
-// Free software released under GNU Public Licence v2.0.
-//
-
-// set up colour palettes for colouring the levels outside the set itself
 let colourPalettes =[getcolor()]
 
     function getcolor()
@@ -30,24 +20,6 @@ let colourPalettes =[getcolor()]
          }
          return arr;
      }
- 
-
-    // const selectElement = document.getElementById("zoomm");
-
-    // selectElement.addEventListener('change', (event) => {
-    //     var canvas = document.getElementById("jset_canvass");
-
-    //     var translatePos = {
-    //         x: canvas.width / 2,
-    //         y: canvas.height / 2
-    //     };
-    //     var val=event.target.value;
-    //     console.log(val);
-
-    //     scale /= scaleMultiplier;
-    //         draw(scale, translatePos);
-
-    // });
 
  function toHSL(hex) {
      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -190,7 +162,7 @@ function mandelbrot() {
             mandelbrotDrawingFuncDem(canvas.getContext("2d"), document.getElementById('iterations').value, currentPlane)
             break
         default:
-            drawSet(canvas, mandelbrotDrawingFuncLsm, currentPlane)
+            drawSet(canvas, mandelbrotDrawingFuncLsm, currentPlane,0)
     }
 }
 
@@ -204,7 +176,27 @@ function julia() {
 
 function drawSet(canvas, drawingFunc, plane) {
     const ctx = canvas.getContext("2d")
-    ctx.reset()
+    var val=document.getElementById("zoomm").value;
+    ctx.reset();
+    if(val>50)
+        {  console.log(val);
+             var howmany=val-50;
+             howmany/=100;
+             howmany*=2;
+            var scalee=howmany;
+            scalee+=1;
+            console.log(scalee);
+            ctx.scale(scalee,scalee);}
+    else if(val<50)
+        {console.log(val);
+            var howmany=50-val;
+            howmany/=100;
+             howmany*=2;
+            scalee=1-howmany;
+            console.log(scalee);
+            ctx.scale(scalee,scalee);}
+    else
+        ;
     const max_iters = document.getElementById('iterations').value
     const method = document.getElementById('method').value
 
