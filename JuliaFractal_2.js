@@ -12,11 +12,11 @@ Complex.prototype.abs = function() {
     return Math.sqrt(this.re * this.re + this.im * this.im);
 }
 
-function belongs(re, im, iterations) {
-    var z = new Complex(0, 0);
-    var c = new Complex(re, im);
+function belongs(re, im, iterations, Cx, Cy) {
+    var z = new Complex(re, im);
+    var c = new Complex(Cx, Cy);
     var i = 0;
-    while(z.abs() < 2 && i < iterations) {
+    while(z.abs() <= 2 && i < iterations) {
         z = z.mul(z).add(c);
         i++;
     }
@@ -31,45 +31,53 @@ function pixel(x, y, color) {
     ctx.fillRect(x, y, 1, 1);
 }
 
-function draw(width, height, myColor, zoom, maxIterations) {
-    // var maxIterations = 500;
+function draw(width, height, myColor, zoom) {
+    var maxIterations = 500;
 
-    let arr_colors = getcolor(myColor)
-    // Беремо відстань між максимум та мінімум
-    // Знаходимо середину (для реальної частини це 0.5, а для уявної 0)
-    // Відстань ділимо на наше збільшення
-    // Отримане число ще раз ділимо на 2
-    // Щоб отримати праве число, ми додаємо до середини, а для лівої віднімаємо від неї
+    var Cx = Number.parseFloat(document.getElementById('cx').value);
+    var Cy = Number.parseFloat(document.getElementById('cy').value);
+    if(isInLimit(Cx, Cy)) {
 
-    var minRe = (3 / (2 * zoom) + 0.5) * (-1), maxRe = 3 / (2 * zoom) - 0.5, minIm = 2 / (2 * zoom) * (-1), maxIm = 2 / (2 * zoom);
+        console.log(getcolor(myColor))
 
-    var reStep = (maxRe - minRe) / width, imStep = (maxIm - minIm) / height;
-    var re = minRe;
-    while (re < maxRe) {
-        var im = minIm;
-        while (im < maxIm) {
-            var result = belongs(re, im, maxIterations);
-            var x = (re - minRe) / reStep, y = (im - minIm) / imStep;
-            if (result == maxIterations) {
-                pixel(x, y, 'black');
-            } else {
-                let color;
-                if(result % 5 == 0) {
-                    color = arr_colors[0];
-                } else if (result % 5 == 1) {
-                    color = arr_colors[1];
-                } else if (result % 5 == 2) {
-                    color = arr_colors[2];
-                } else if (result % 5 == 3) {
-                    color = arr_colors[3];
+        let arr_colors = getcolor(myColor)
+        // Беремо відстань між максимум та мінімум
+        // Знаходимо середину (для реальної частини це 0.5, а для уявної 0)
+        // Відстань ділимо на наше збільшення
+        // Отримане число ще раз ділимо на 2
+        // Щоб отримати праве число, ми додаємо до середини, а для лівої віднімаємо від неї
+
+        var minRe = (4 / (2 * zoom)) * (-1), maxRe = 4 / (2 * zoom), minIm = (4 / (2 * zoom)) * (-1), maxIm = 4 / (2 * zoom);
+        // var minRe = -2, maxRe = 2, minIm = -2, maxIm = 2;
+
+        var reStep = (maxRe - minRe) / width, imStep = (maxIm - minIm) / height;
+        var re = minRe;
+        while (re < maxRe) {
+            var im = minIm;
+            while (im < maxIm) {
+                var result = belongs(re, im, maxIterations, Cx, Cy);
+                var x = (re - minRe) / reStep, y = (im - minIm) / imStep;
+                if (result == maxIterations) {
+                    pixel(x, y, 'black');
                 } else {
-                    color = arr_colors[4];
+                    let color;
+                    if(result % 5 == 0) {
+                        color = arr_colors[0];
+                    } else if (result % 5 == 1) {
+                        color = arr_colors[1];
+                    } else if (result % 5 == 2) {
+                        color = arr_colors[2];
+                    } else if (result % 5 == 3) {
+                        color = arr_colors[3];
+                    } else {
+                        color = arr_colors[4];
+                    }
+                    pixel(x, y, color);
                 }
-                pixel(x, y, color);
+                im += imStep;
             }
-            im += imStep;
+            re += reStep;
         }
-        re += reStep;
     }
 }
 
@@ -150,4 +158,24 @@ function sign() {
     } else {
         text.style.visibility ='hidden';
     }
+}
+function sign_2() {
+    let text = document.getElementById('sign_text_2');
+    // document.getElementById('sign_text').style.visibility = "visible"
+    if(text.style.visibility === 'hidden') {
+        text.style.visibility ='visible';
+    } else {
+        text.style.visibility ='hidden';
+    }
+}
+function isInLimit(Cx, Cy) {
+    let text = document.getElementById('sign_text_3');
+    if(Cx > 2 || Cx < -2 || Cy > 2 || Cy < -2) {
+        text.style.visibility ='visible';
+        return false;
+    }
+    else {
+        text.style.visibility ='hidden';
+    }
+    return true;
 }

@@ -76,13 +76,13 @@ input[type=range]  {
     -webkit-appearance: none;
     appearance: none;
   }
-  input[type=range]::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {
     height: 7px;
     background-color: #FF974B;
     border-radius: 10px;
     border: 2px solid #FFBD8C;
-  }
-  input[type=range]::-webkit-slider-thumb {
+}
+input[type=range]::-webkit-slider-thumb {
     background: #FF974B;
     border-radius: 50%;
     border: 2px solid #FFBD8C;
@@ -91,13 +91,13 @@ input[type=range]  {
     height: 25px;
     -webkit-appearance: none;
     margin-top: -10px;
-  }
+}
 .number-zero {
     color: #fff;
     text-shadow: 1px 1px 4px #000;
     font-size: 20px;
     
-    margin-right: 370px;
+    margin-right: 380px;
 }
 
 .number-hundred {
@@ -105,35 +105,33 @@ input[type=range]  {
     text-shadow: 1px 1px 4px #000;
     font-size: 20px;
 }
-.complex_number {
-    margin-bottom: 20px;
-}
-.comple-number_const {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    color: #fff;
 
-    text-shadow: 1px 1px 4px #000;
-}
-
-input[type=number]  {
-    width: 80px;
-    height: 50px;
-    align-items: center;
-    border: 1px solid #000;
-    background: #E6E6E6;
-    border-radius: 20px;
+.count_iterations {
+    /* border: 1px solid #000; */
 
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
+    line-height: 90%;
+    /* identical to box height, or 54px */
     color: #fff;
+
+    margin-bottom: 25px;
 
     text-shadow: 1px 1px 4px #000;
 }
-  input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+
+.myIterations {
+    display: inline-block;
+    width: 100px;
+    border: 2px solid #FFBD8C;
+    background-color: #FF974B;
+    border-radius: 15px;
+
+    font-family: 'Chelsea Market';
+    color: #fff;
+
+    font-size: 30px;
 }
 
 .Nav_home {
@@ -275,4 +273,45 @@ input[type="color"]::-webkit-color-swatch {
 .download_b {
     margin-left: 50px;
     margin-top: 30px;
+}
+
+.sign {
+    position: absolute;
+    top: 127px;
+    left: 600px;
+    z-index: 10;
+
+    width: 52px;
+    height: 52px;
+
+    cursor: pointer;
+
+    background: url(images/signt.png);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+
+    border: 1px solid #000;
+}
+
+.sign_text {
+    position: absolute;
+    top: 190px;
+    left: 440px;
+    z-index: 10;
+
+    visibility: hidden;
+
+    background-color: #D9D9D9;
+    border-radius: 20px;
+
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
 }
