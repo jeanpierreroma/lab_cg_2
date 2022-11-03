@@ -1,0 +1,214 @@
+.data {
+    width: 100%;
+    height: 520px;
+    display: flex;
+    font-family: 'Chelsea Market';
+}
+.left_part {
+    width: 45%;
+    height: 100%;
+    display: inline-block;
+    margin-right: 10%;
+
+    border: solid #FF974B;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+
+    background-color: white;
+    opacity: 90%;
+}
+.right_part {
+    width: 45%;
+    height: 100%;
+    display: inline-block;
+
+    border: solid #FF974B;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+
+    background: white;
+    opacity: 90%;
+}
+
+.Nav_home {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_fractals {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_colors {
+    color: #FF974B;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_move {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.form {
+    height: 70%;
+    width: 100%;
+
+    margin-left: 50px;
+    /* border: 4px solid #000; */
+}
+
+.Button_use input{
+    width: 100px;
+    height: 50px;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+    margin-left: 480px;
+
+    color: #fff;
+    font-size: 30px;
+
+    background: #FF974B;
+    border: 3px solid #FFBD8C;
+    border-radius: 20px;
+}
+.Button_use input:hover {
+    margin-top: -1px;
+    box-shadow: 1px 1px 4px #000;
+}
+.Button_use input:active {
+    margin-top: 1px;
+    box-shadow: 1px 1px 0px #000;
+
+    background: #FFBD8C;
+    border: 3px solid #FF974B;
+}
+
+.download_b {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+
+input[type=range]  {
+    width: 400px;
+    margin-top: 30px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+input[type=range]::-webkit-slider-runnable-track {
+    height: 7px;
+    background-color: #FF974B;
+    border-radius: 10px;
+    border: 2px solid #FFBD8C;
+}
+input[type=range]::-webkit-slider-thumb {
+    background: #FF974B;
+    border-radius: 50%;
+    border: 2px solid #FFBD8C;
+    cursor: pointer;
+    width:25px;
+    height: 25px;
+    -webkit-appearance: none;
+    margin-top: -10px;
+}
+
+.scale {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.scale-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 90%;
+    /* identical to box height, or 54px */
+    color: #fff;
+
+    text-shadow: 1px 1px 4px #000;
+}
+.number-zero {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+    font-size: 20px;
+    
+    margin-right: 380px;
+}
+
+.number-hundred {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+    font-size: 20px;
+}
+
+.text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    color: #fff;
+    min-width: 200px;
+    text-shadow: 1px 1px 4px #000;
+}
+
+input[type=number]  {
+    width: 80px;
+    height: 50px;
+    align-items: center;
+    border: 1px solid #000;
+    background: #E6E6E6;
+    border-radius: 20px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    color: #fff;
+
+    text-shadow: 1px 1px 4px #000;
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+
+
+#display-image{
+    width: 400px;
+    height: 225px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+  }
+
+  #preview {
+        border:1px #000 solid;
+        box-shadow:2px 3px 3px #444444;
+        height:80px;
+        width:80px;
+        border-radius:3px;
+        -moz-border-radius:3px;
+        -webkit-border-radius:3px;
+    }
+
+    
+    #panel {
+            border:1px #000 solid;
+            box-shadow:4px 6px 6px #444444;
+            cursor:crosshair;
+        }
+
+        #swImage {
+                border:1px #000 solid;
+                box-shadow:2px 3px 3px #444444;
+                cursor:pointer;
+                height:25px;
+                line-height:25px;
+                border-radius:3px;
+                -moz-border-radius:3px;
+                -webkit-border-radius:3px;
+            }
+            #swImage:hover {
+                margin-left:2px;
+            }
+            
+        
+    

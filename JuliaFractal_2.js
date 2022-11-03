@@ -48,7 +48,6 @@ function draw(width, height, myColor, zoom) {
         // Щоб отримати праве число, ми додаємо до середини, а для лівої віднімаємо від неї
 
         var minRe = (4 / (2 * zoom)) * (-1), maxRe = 4 / (2 * zoom), minIm = (4 / (2 * zoom)) * (-1), maxIm = 4 / (2 * zoom);
-        // var minRe = -2, maxRe = 2, minIm = -2, maxIm = 2;
 
         var reStep = (maxRe - minRe) / width, imStep = (maxIm - minIm) / height;
         var re = minRe;

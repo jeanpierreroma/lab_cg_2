@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Background.css">
+    <link rel="stylesheet" href="../lab_cg_2/ColorPage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/Users/User/Documents/jquery-3.6.1.min.js"></script>
+    <title>Color Page</title>
+</head>
+<body onload="load()">
+    <!-- BackGround -->
+    <div class = "BackGround">
+        <div class="Navigation">
+            <a href="WelcomePage.html"><span class="Nav_home">Home</span></a>
+            <a href="MandelbrotFractal.html"><span class="Nav_fractals">Fractals</span></a>
+            <a href="ColorPage.html"><span class="Nav_colors">Colors</span></a>
+            <a href=""><span class="Nav_move">Move</span></a>
+        </div>
+        <div class="data">
+            <div class="left_part">
+                <div class="form">
+                    <div class="HSV">
+                        <p>
+                            <span class="text">H</span>
+                            <span class="text">S</span>
+                            <span class="text">V</span>
+                        </p>
+                        <p>
+                            <input type="number" id="h" value="0">
+                            <input type="number" id="s" value="0">
+                            <input type="number" id="v" value="0">
+                        </p>
+                    </div>
+                    <div class="CMYK">
+                        <p>
+                            <span class="text">C</span>
+                            <span class="text">M</span>
+                            <span class="text">Y</span>
+                            <span class="text">K</span>
+                        </p>
+                        <p>
+                            <input type="number" id="c" value="0">
+                            <input type="number" id="m" value="0">
+                            <input type="number" id="y" value="0">
+                            <input type="number" id="k" value="0">
+                        </p>
+                        <div>Цвет:</div>
+                       <div id="preview"></div>
+                        
+                    </div>
+                    <div class="scale">
+                        <p><span class="scale-text">brightness</span></p>
+                        <input type="range" name="scale" id="zoom" min="1" max="10" step="1" value="1">
+                        <p><span class="number-zero">1</span><span class="number-hundred">100</span></p>
+                    </div>
+                    <div class="scale">
+                        <p><span class="scale-text">saturation</span></p>
+                        <input type="range" name="scale" id="zoom" min="1" max="10" step="1" value="1">
+                        <p><span class="number-zero">1</span><span class="number-hundred">100</span></p>
+                    </div>
+                    <div class="Button_use">
+                        <input type="submit" value="Use">
+                    </div>
+                </div>
+            </div> 
+            <div class="right_part">  
+                <!-- <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
+                <div id="display-image"></div>-->
+                <a id='a' download = Photo += '.png'></a> 
+                <canvas id="panel" width="500" height="333"></canvas>
+                <button class="download_b"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+            </div>
+</div>
+<div><a class="Right_arrow" href=""></a></div>
+<div><a class="Left_arrow" href="JuliaFractal.html"></a></div>
+<div><a class="Extra_info" href="Study_component/ColorComponent.html"><span>Something is not clear, click me to learn more</span><div class="Cat"></div></a></div>
+</div>
+<script src="ColorPage.js"></script>
+</body>
+</html>
