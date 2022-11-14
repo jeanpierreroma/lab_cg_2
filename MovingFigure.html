@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Background.css">
+    <link rel="stylesheet" href="MuvingFigure.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>MuvingFigure</title>
+</head>
+<body onload="changeVariantOfTransformation()">
+    <!-- BackGround -->
+    <div class = "BackGround">
+        <div class="Navigation">
+            <a href="WelcomePage.html"><span class="Nav_home">Home</span></a>
+            <a href="MandelbrotFractal.html"><span class="Nav_fractals">Fractals</span></a>
+            <a href="ColorPage.html"><span class="Nav_colors">Colors</span></a>
+            <a href="MovingFigure.html"><span class="Nav_move">Move</span></a>
+        </div>
+        <div class="data">
+            <!-- <button class="sign" onclick="sign()"></button>
+            <div class="sign_text" id="sign_text">in this formula: c - it’s complex number, z - it’s point on complex area</div>            
+            <button id="sign_button" class="sign_2" onclick="sign_2()"></button>
+            <div class="sign_text_2" id="sign_text_2">it’s a complex number, x is the real part of the complex number, y is the imaginary part</div>
+            <div class="sign_text_3" id="sign_text_3">Cx [-1; 1] and Cy [-1; 1]</div> -->
+            <div class="left_part">
+                <div class="form">
+                    <div class="square">
+                        <div class="left_coordinate">
+                            <input type="number" id="cx" value="0.0" />
+                            <input type="number" name="cy" id="cy" value="0.0" />
+                        </div>
+                        <div class="square_figure"></div>
+                        <div class="right_coordinate">
+                            <input type="number" id="cx" value="0.0" />
+                            <input type="number" name="cy" id="cy" value="0.0" />
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="moving">
+                        <p><span class="vector-text">vector:</span></p>
+                        <input type="number" id="cx" value="0.0" />
+                        <input type="number" name="cy" id="cy" value="0.0" />
+                    </div>
+
+                    <hr>
+
+                    <div class="scale">
+                        <div class="scale_a">
+                            <span class="scale-text">a</span>
+                            <input type="range" name="scale" id="scale" min="1" max="10" step="1" value="1">
+                            <p><span class="number-zero">1</span><span class="number-hundred">10</span></p>
+                        </div>
+                        <div class="scale_b">
+                            <span class="scale-text">b</span>
+                            <input type="range" name="scale" id="scale" min="1" max="10" step="1" value="1">
+                            <p><span class="number-zero">1</span><span class="number-hundred">10</span></p>
+                        </div>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="rotation">
+                        <p><span class="rotation-text">rotation-angle</span></p>
+                        <input type="range" name="scale" id="rotation-angle" min="1" max="360" step="1" value="1">
+                        <p><span class="number-one">1</span><span class="number-end-angle">360</span></p>
+                    </div>
+
+                    <hr>
+
+                    <div class="button_and_select">
+                        <div class="chose_variant">
+                            <select id="myIterations" class="myIterations" onchange="changeVariantOfTransformation()">    
+                                <option>1</option>
+                                <option>2</option>  
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="chose_variant">
+                            <select id="myIterations_forOne" class="myIterations forOne">    
+                                <option>1</option>
+                                <option>2</option>  
+                                <option>3</option>
+                            </select>
+                        </div>
+                        <div class="chose_variant">
+                            <select id="myIterations_forTwo" class="myIterations forTwo">    
+                                <option>1,2</option>
+                                <option>1,3</option>  
+                                <option>2,3</option>
+                                <option>2,1</option>
+                                <option>3,1</option>  
+                                <option>3,2</option>
+                            </select>
+                        </div>
+                        <div class="chose_variant">
+                            <select id="myIterations_forThree" class="myIterations forThree">    
+                                <option>1,2,3</option>
+                                <option>1,3,2</option>  
+                                <option>2,1,3</option>
+                                <option>2,3,1</option>
+                                <option>3,2,1</option>  
+                                <option>3,1,2</option>
+                            </select>
+                        </div>
+                        <div class="Button_use">
+                            <input type="submit" value="Use" onclick="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="right_part">
+                <a id='a' download = Julia_fractal += '.png'></a>
+                <button class="download_b"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+            </div>
+        </div>
+        <div class="bottom_part">
+            <div><a class="Left_arrow" href="ColorPage.html"></a></div>
+            <a class="Extra_info" href="Study_component/MandelbrotComponent.html"><span>Something is not clear, click me to learn more</span></a>
+            <a href="Study_component/MandelbrotComponent.html"><div class="Cat"></div></a>
+        </div>
+    </div>
+    <script type="application/x-javascript" src="MuvingFigure.js"></script>
+</body>
+</html>
