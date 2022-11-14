@@ -26,9 +26,9 @@
                 <div class="form">
                     <div class="HSV">
                         <p>
-                            <span class="text">H</span>
-                            <span class="text">S</span>
-                            <span class="text">V</span>
+                            <span class="text" id="h_s">H</span>
+                            <span class="text" id="s_s">S</span>
+                            <span class="text" id="v_s">V</span>
                         </p>
                         <p>
                             <input type="number" id="h" value="0">
@@ -38,20 +38,19 @@
                     </div>
                     <div class="CMYK">
                         <p>
-                            <span class="text">C</span>
-                            <span class="text">M</span>
-                            <span class="text">Y</span>
-                            <span class="text">K</span>
+                            <span class="text" id="c_s">C</span>
+                            <span class="text" id="m_s">M</span>
+                            <span class="text" id="y_s">Y</span>
+                            <span class="text" id="k_s">K</span>
                         </p>
                         <p>
-                            <input type="number" id="c" value="0">
-                            <input type="number" id="m" value="0">
-                            <input type="number" id="y" value="0">
-                            <input type="number" id="k" value="0">
+                            <input type="number" id="_c" value="0">
+                            <input type="number" id="_m" value="0">
+                            <input type="number" id="_y" value="0">
+                            <input type="number" id="_k" value="0">
                         </p>
-                        <div>Цвет:</div>
                        <div id="preview"></div>
-                        
+                        <button id="start-button">Pick</button>
                     </div>
                     <div class="scale">
                         <p><span class="scale-text">brightness</span></p>
@@ -69,11 +68,13 @@
                 </div>
             </div> 
             <div class="right_part">  
-                <!-- <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
-                <div id="display-image"></div>-->
                 <a id='a' download = Photo += '.png'></a> 
-                <canvas id="panel" width="500" height="333"></canvas>
-                <button class="download_b"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+                <canvas id="panel" width="400" height="300"></canvas>
+                <canvas id="panel2" width="400" height="300"></canvas>
+                <button class="upload_b1"><img width="50" height="50" src="images/upload_button.png" alt=""></button>
+                <button class="download_b1"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+                <button class="upload_b2"><img width="50" height="50" src="images/upload_button.png" alt=""></button>
+                <button class="download_b2"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
             </div>
 </div>
 <div><a class="Right_arrow" href=""></a></div>
