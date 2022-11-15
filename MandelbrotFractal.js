@@ -78,13 +78,26 @@ function getcolor(myHex)
     var hex = myHex;
     let n = 5;
     var hsl = toHSL(hex);
-    var stepS = 5;
-    var stepL = 5;
+    var stepS = 7;
+    var stepL = 7;
     var arr = [hex]; 
     for(;n!==0;n--) {
         hsl=toHSL(hex);
-        hsl[1]-=stepS;
-        hsl[2]+=stepL;
+        if(hsl[1] - stepS < 0) {
+            hsl[1]+=stepS;
+        }
+        else {
+            hsl[1]-=stepS;
+        }
+
+        if(hsl[2] + stepL > 100) {
+            hsl[2]-=stepL;
+        }
+        else {
+            hsl[2]+=stepL;
+        }
+        // hsl[1]-=stepS;
+        // hsl[2]+=stepL;
         hex=toHex(hsl[0],hsl[1],hsl[2]);
         arr.push(hex);
     }

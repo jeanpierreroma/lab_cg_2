@@ -1,0 +1,395 @@
+.Nav_home {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_fractals {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_colors {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.Nav_move {
+    color: #FF974B;
+    text-shadow: 1px 1px 4px #000;
+}
+
+
+.data {
+    width: 100%;
+    height: 520px;
+    display: flex;
+    font-family: 'Chelsea Market';
+}
+.left_part {
+    width: 45%;
+    height: 100%;
+    display: inline-block;
+    margin-right: 10%;
+
+    border: solid #FF974B;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+
+    background-color: white;
+    opacity: 90%;
+}
+.right_part {
+    width: 45%;
+    height: 100%;
+    display: inline-block;
+
+    border: solid #FF974B;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+
+    background: white;
+    opacity: 90%;
+}
+
+
+.form {
+    height: 70%;
+    width: 100%;
+
+    margin-left: 50px;
+    /* border: 4px solid #000; */
+}
+
+.square {
+    display: flex;
+
+    margin-top: 10px;
+    /* border: 1px solid #000 ; */
+}
+input[type=number]  {
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid #000;
+    background: #E6E6E6;
+    border-radius: 20px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    color: #fff;
+
+    text-shadow: 1px 1px 4px #000;
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none; 
+}
+.left_coordinate {
+    margin-top: 50px;
+    margin-right: 5px;
+}
+.right_coordinate {
+    margin-left: 5px;
+}
+.square_figure {
+    width: 100px;
+    height: 100px;
+    background-color: #FF974B;
+    border: 1px solid #000;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1.2px solid #000;
+    width: 500px;
+}
+
+.moving {
+    display: flex;
+}
+.moving p {
+    margin-right: 20px;
+}
+.vector-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    color: #fff;
+
+    text-shadow: 1px 1px 4px #000;
+}
+
+.scale {
+}
+.scale-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 90%;
+    /* identical to box height, or 54px */
+    color: #fff;
+
+    text-shadow: 1px 1px 4px #000;
+    margin-right: 10px;
+}
+input[type=range]  {
+    width: 400px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    height: 7px;
+    background-color: #FF974B;
+    border-radius: 10px;
+    border: 2px solid #FFBD8C;
+}
+input[type=range]::-webkit-slider-thumb {
+    background: #FF974B;
+    border-radius: 50%;
+    border: 2px solid #FFBD8C;
+    cursor: pointer;
+    width:25px;
+    height: 25px;
+    -webkit-appearance: none;
+    margin-top: -10px;
+}
+.number-zero {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+    font-size: 20px;
+    
+    margin-left: 40px;
+    margin-right: 390px;
+}
+.number-hundred {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+    font-size: 20px;
+}
+
+.rotation {
+}
+.rotation-text {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 90%;
+    /* identical to box height, or 54px */
+    color: #fff;
+
+    text-shadow: 1px 1px 4px #000;
+    margin-bottom: 10px;
+}
+.rotation input[type=range]  {
+    width: 450px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.number-one {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+    font-size: 20px;
+    
+    margin-right: 430px;
+}
+.number-end-angle {
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+    font-size: 20px;
+}
+
+.button_and_select {
+    display: flex;
+    /* border: 1px solid #000; */
+}
+.myIterations {
+    display: inline-block;
+    width: 100px;
+    border: 2px solid #FFBD8C;
+    background-color: #FF974B;
+    border-radius: 15px;
+
+    font-family: 'Chelsea Market';
+    color: #fff;
+    font-size: 30px;
+
+    margin-top: 5px;
+    margin-left: 20px;
+}
+.forOne {
+    display: none;
+}
+.forTwo {
+    display: none;
+}
+.forThree {
+    display: none;
+}
+.Button_use {
+    display: inline-block;
+
+    margin-top: 5px;
+    margin-left: 250px;
+
+    /* border: 1px solid #000; */
+}
+.Button_use input{
+    width: 100px;
+    height: 50px;
+
+    cursor: pointer;
+
+    color: #fff;
+    font-size: 30px;
+
+    background: #FF974B;
+    border: 3px solid #FFBD8C;
+    border-radius: 20px;
+}
+.Button_use input:hover {
+    margin-top: -1px;
+    box-shadow: 1px 1px 4px #000;
+}
+.Button_use input:active {
+    margin-top: 1px;
+    box-shadow: 1px 1px 0px #000;
+
+    background: #FFBD8C;
+    border: 3px solid #FF974B;
+}
+
+
+.fractal_name {
+    width: 650px;
+    margin: 20px auto;
+    text-align: center;
+
+    background: #FF974B;
+    border-radius: 50px;
+}
+.fractal_name span {
+    display: inline-block;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+    color: #fff;
+}
+
+.fractal {
+    display: block;
+    width:450px; 
+    height:300px;
+    margin: 0px auto;
+}
+
+.download_b {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.sign {
+    position: absolute;
+    top: 127px;
+    left: 600px;
+    z-index: 10;
+
+    width: 52px;
+    height: 52px;
+
+    cursor: pointer;
+
+    background: url(images/signt.png);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+
+    border: 1px solid #000;
+}
+
+.sign_2 {
+    position: absolute;
+    top: 340px;
+    left: 600px;
+    z-index: 10;
+
+    width: 52px;
+    height: 52px;
+
+    cursor: pointer;
+
+    background: url(images/signt.png);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+
+    border: 1px solid #000;
+}
+
+.sign_text {
+    position: absolute;
+    top: 190px;
+    left: 440px;
+    z-index: 10;
+
+    visibility: hidden;
+
+    background-color: #D9D9D9;
+    border-radius: 20px;
+
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.sign_text_2 {
+    position: absolute;
+    top: 250px;
+    left: 440px;
+    z-index: 10;
+
+    visibility: hidden;
+
+    background-color: #D9D9D9;
+    border-radius: 20px;
+
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
+.sign_text_3 {
+    position: absolute;
+    top: 290px;
+    left: 440px;
+    z-index: 10;
+
+    visibility: hidden;
+
+    background-color: #FD7474;
+    border-radius: 20px;
+
+    width: 400px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+}
