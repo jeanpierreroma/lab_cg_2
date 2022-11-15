@@ -233,7 +233,7 @@ button:active {
     }
 
     
-    #panel {
+    /* #panel {
             border:1px #000 solid;
             box-shadow:4px 6px 6px #444444;
             cursor:crosshair;
@@ -246,7 +246,7 @@ button:active {
             cursor:crosshair;
             margin-left: 10px;
             margin-top: 50px;
-        }     
+        }      */
 
 #h_s{
     margin-left: 29px;
@@ -270,6 +270,23 @@ button:active {
 #k_s{
     margin-left: 50px;
 }
+
+.swatch {
+    width: 30px;
+    height: 50px;
+    float: left;
+  }
+  
+  .swatches {
+    margin-bottom: 40px;
+  }
+  
+  .swatches:after {
+    display: table;
+    content: " ";
+    clear: both;
+  }
+  
 
             
         
