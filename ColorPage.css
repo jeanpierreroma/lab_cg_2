@@ -181,7 +181,7 @@ input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-button {
+#start-button {
     width: 100px;
     height: 50px;
 
@@ -200,11 +200,11 @@ button {
     border: 3px solid #FFBD8C;
     border-radius: 20px;
 }
-button:hover {
+#start-button:hover {
     margin-top: -1px;
     box-shadow: 1px 1px 4px #000;
 }
-button:active {
+#start-button:active {
     margin-top: 1px;
     box-shadow: 1px 1px 0px #000;
 
@@ -238,14 +238,14 @@ button:active {
             box-shadow:4px 6px 6px #444444;
             cursor:crosshair;
             margin-left: 20px;
-            margin-top: 50px;
+            margin-top: 20px;
         }     
     #panel2 {
             border:1px #000 solid;
             box-shadow:4px 6px 6px #444444;
             cursor:crosshair;
-            margin-left: 10px;
-            margin-top: 50px;
+            margin-left: 20px;
+            margin-top: 30px;
         }     
 
 #h_s{
@@ -270,6 +270,47 @@ button:active {
 #k_s{
     margin-left: 50px;
 }
+
+.swatch {
+    width: 30px;
+    height: 50px;
+    float: left;
+  }
+  
+  .swatches {
+    margin-bottom: 40px;
+  }
+  
+  .swatches:after {
+    display: table;
+    content: " ";
+    clear: both;
+  }
+
+  /* img{
+    display: none;
+  } */
+
+  #outImage2{
+    display: none;
+  }
+  #outImage{
+    display: none;
+  }
+  
+  .download_b1 {
+    margin-left: 20px;
+    margin-top: 180px;
+    position:absolute;
+}
+
+.download_b2 {
+    margin-left: 20px;
+    margin-top: 150px;
+}
+
+
+
 
             
         
