@@ -1,8 +1,14 @@
 const download_img = () => {
-    const canvas = document.getElementById("panel");
-    const a = document.getElementById("a");
-    a.href = canvas.toDataURL("image/png");
-    a.click();
+  const canvas = document.getElementById("panel");
+  const a = document.getElementById("a");
+  a.href = canvas.toDataURL("image/png");
+  a.click();
+};
+const download_img2 = () => {
+  const canvas = document.getElementById("panel2");
+  const a = document.getElementById("a");
+  a.href = canvas.toDataURL("image/png");
+  a.click();
 };
 
 var canvas;
@@ -12,37 +18,10 @@ var ctx2;
 var pixels=new Array();
 var pixels2=new Array();
 
-// var images = [ // Массив используемых изображений
-//     'bilders/pic1.jpg',
-//     'bilders/pic2.jpg',
-//     'bilders/pic3.jpg',
-//     'bilders/pic4.jpg'
-// ];
-
-// function load(){
-
-//     var image = new Image();
-//     image.onload = function () {
-//         ctx1.drawImage(image, 0, 0, image.width, image.height); // draw the image on the canvas
-//     }
-//     image.src = images[1];
-//     canvas1 = document.getElementById('panel');
-//     ctx1 = canvas1.getContext('2d');
-
-//     var image2 = new Image();
-//     image2.onload = function () {
-//         ctx2.drawImage(image2, 0, 0, image2.width, image2.height); // draw the image on the canvas
-//     }
-//     image2.src = images[1];
-//     canvas2 = document.getElementById('panel2');
-//     ctx2 = canvas2.getContext('2d');
-
-// }
-
     document.getElementById('start-button').addEventListener('click', () => {
-        const resultElement = document.getElementById('result');      
+        const resultElement = document.getElementById('result');
         const eyeDropper = new EyeDropper();
-      
+
         eyeDropper.open().then((result) => {
           document.getElementById("preview").style.backgroundColor = result.sRGBHex;
             var color=result.sRGBHex;
@@ -63,118 +42,67 @@ var pixels2=new Array();
         });
       });
 
-
-    // function toHSL(hex) {
-    //     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    
-    //     var r = parseInt(result[1], 16);
-    //     var g = parseInt(result[2], 16);
-    //     var b = parseInt(result[3], 16);
-    
-    //     r /= 255, g /= 255, b /= 255;
-    //     var max = Math.max(r, g, b), min = Math.min(r, g, b);
-    //     var h, s, l = (max + min) / 2;
-    
-    //     if(max == min){
-    //         h = s = 0; // achromatic
-    //     } else {
-    //         var d = max - min;
-    //         s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    //         switch(max) {
-    //             case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-    //             case g: h = (b - r) / d + 2; break;
-    //             case b: h = (r - g) / d + 4; break;
-    //         }
-    //         h /= 6;
-    //     }
-    //         s = s*100;
-    //         s = Math.round(s);
-    //         l = l*100;
-    //         l = Math.round(l);
-    //         h = Math.round(360*h);
-    //         var arr =[h,s,l];
-    //     return arr;
-    // }
-
 document.getElementById("picField").onchange = function (evt) {
     var tgt = evt.target || window.event.srcElement,
       files = tgt.files;
-  
-    // FileReader support
     if (FileReader && files && files.length) {
       var fr = new FileReader();
       fr.onload = function () {
         var img = document.getElementById("outImage");
-  
+
         img.src = fr.result;
         context = document.getElementById("panel").getContext("2d");
-  
+
         img.addEventListener("load", function () {
 
           context.drawImage(img, 0, 0, 300, 200);
-  
-          pixels = new Array();
-  
-          for (var x = 0; x < 300; x++) {
-            for (var y = 0; y < 200; y++) {
-              var pixel = context.getImageData(x, y, 1, 1).data;
-              var hsl = RGBToHSL(pixel[0], pixel[1], pixel[2]);
-              pixel["luma"] =
-                0.2126 * pixel[0] + 0.7152 * pixel[1] + 0.0722 * pixel[2];
-              pixel["hue"] = hsl[0];
-              pixel["saturation"] = hsl[1];
-              pixel["lightness"] = hsl[2];
-              pixels.push(pixel);
-            } 
-          }
-          console.log(pixels[0]);
-        });
-      };
-      fr.readAsDataURL(files[0]);
-    }
-    else {
-      // fallback -- perhaps submit the input to an iframe and temporarily store
-      // them on the server until the user's session ends.
-    }
-};
-
-document.getElementById("picField2").onchange = function (evt) {
-    var tgt = evt.target || window.event.srcElement,
-      files = tgt.files;
-  
-    // FileReader support
-    if (FileReader && files && files.length) {
-      var fr = new FileReader();
-      fr.onload = function () {
-        var img = document.getElementById("outImage2");
-  
-        img.src = fr.result;
-        context2 = document.getElementById("panel2").getContext("2d");
-  
-        img.addEventListener("load", function () {
-          // canvas2.height = (canvas2.width * img.height) / img.width;
-          context2.drawImage(img, 0, 0, 300, 200);
-  
-         pixels2 = new Array();
-  
-          for (var x = 0; x < canvas2.width; x++) {
-            for (var y = 0; y < canvas2.height; y++) {
-              var pixel = context2.getImageData(x, y, 1, 1).data;
-              var hsl = RGBToHSL(pixel[0], pixel[1], pixel[2]);
-              pixel["luma"] =
-                0.2126 * pixel[0] + 0.7152 * pixel[1] + 0.0722 * pixel[2];
-              pixel["hue"] = hsl[0];
-              pixel["saturation"] = hsl[1];
-              pixel["lightness"] = hsl[2];
-              pixels2.push(pixel);
-            } 
-          }
         });
       };
       fr.readAsDataURL(files[0]);
     }
     else { }
 };
+
+document.getElementById("picField2").onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+      files = tgt.files;
+
+    // FileReader support
+    if (FileReader && files && files.length) {
+      var fr = new FileReader();
+      fr.onload = function () {
+        var img = document.getElementById("outImage2");
+        img.src = fr.result;
+       let context2 = document.getElementById("panel2").getContext("2d");
+            img.addEventListener("load", function () {
+          // canvas2.height = (canvas2.width * img.height) / img.width;
+          context2.drawImage(img, 0, 0, 300, 200);
+        });
+      };
+      fr.readAsDataURL(files[0]);
+    }
+    //hange();
+};
+
+function change()
+{
+  var context2 = document.getElementById("panel2").getContext("2d");
+  var imagedata = context2.getImageData(0,0,300,200);
+  console.log(imagedata.data);
+  for (var y = 0; y < imagedata.data.length; y+=4)
+       {
+           var cmyk = rgb2cmyk(Number.parseInt(imagedata.data[y+0]),Number.parseInt( imagedata.data[y+1]),Number.parseInt( imagedata.data[y+2]));
+           var rgb=cmyk2rgb(cmyk.c,cmyk.m,cmyk.y,cmyk.k);
+          //  console.log(cmyk.c);
+           console.log(rgb);
+           var tmp=Number.parseInt(imagedata.data[y+0]);
+           //console.log(tmp);
+           imagedata.data[y+0]=rgb.r;
+           imagedata.data[y+1]=rgb.g;
+           imagedata.data[y+2]=rgb.b;
+       }
+   context2.putImageData(imagedata,0,0);
+}
 
 function RGBToHSL(r, g, b){
     r /= 255;
@@ -194,8 +122,8 @@ function RGBToHSL(r, g, b){
       100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
       (100 * (2 * l - s)) / 2,
     ];
-  };  
-  
+  };
+
   function HSLToRGB(h, s, l){
     s /= 100;
     l /= 100;
@@ -208,75 +136,45 @@ function RGBToHSL(r, g, b){
 
     function use()
     {
-      const canvas = document.getElementById('panel');
       var context = document.getElementById("panel").getContext("2d");
-
       pixels = new Array();
-  
-      for (var x = 0; x < canvas.width; x++) {
-        for (var y = 0; y < canvas.height; y++) {
-          var pixel = context.getImageData(x, y, 1, 1).data;
-          var hsl = RGBToHSL(pixel[0], pixel[1], pixel[2]);
-          pixel["luma"] =
-            0.2126 * pixel[0] + 0.7152 * pixel[1] + 0.0722 * pixel[2];
-          pixel["hue"] = hsl[0];
-          pixel["saturation"] = hsl[1];
-          pixel["lightness"] = hsl[2];
-          pixels.push(pixel);
-        } 
-      }
+var imagedata = context.getImageData(0,0,300,200);
 
-      //console.log(pixels[1]);
+var brightness_s=document.getElementById("zoom_b").value;
+var saturation_s=document.getElementById("zoom_s").value;
 
-        for(var x = 0; x < canvas.height; x++)
-          {
-            for (var y = 0; y < canvas.width; y++)
+       for (var y = 0; y < imagedata.data.length; y+=4)
             {
-              //console.log(pixels[0].hue);
-                if(pixels[x*canvas.width+y].hue>190&&pixels[x*canvas.width+y].hue<280)
+              var hsl = RGBToHSL(imagedata.data[y+0], imagedata.data[y+1], imagedata.data[y+2]);
+              var hue = hsl[0];
+              var saturation = hsl[1];
+              var lightness = hsl[2];
+                if(hue>220 && hue<260)
                 {
-                    pixels[x*canvas.width+y].saturation -=30; 
-                    pixels[x*canvas.width+y].lightness +=30; 
-                    //console.log("found");
-                    if(pixels[x*canvas.width+y].saturation<0)
-                        pixels[x*canvas.width+y].saturation=0;
-                    if(pixels[x*canvas.width+y].lightness>100)
-                        pixels[x*canvas.width+y].lightness=100;
+                  if(brightness_s>50)
+                    lightness+=brightness_s-50;
+                  else if(brightness_s<50)
+                    lightness-=50-brightness_s;
+                  if(saturation_s>50)
+                    saturation+=saturation_s-50;
+                  else if(saturation_s<50)
+                    saturation-=50-saturation_s;
+                  if(saturation<0)
+                      saturation=0;
+                  if(lightness>100)
+                      lightness=100;
+
+                  // saturation=saturation_s;
+                  // lightness=brightness_s;
                 }
-               // console.log(pixels[3000].hue);
-                var rgb=HSLToRGB(pixels[x*canvas.width+y].hue,pixels[x*canvas.width+y].saturation,pixels[x*canvas.width+y].lightness);
-                pixels[x*canvas.width+y][0]=rgb[0];
-                pixels[x*canvas.width+y][1]=rgb[1];
-                pixels[x*canvas.width+y][2]=rgb[2];                
+                var rgb=HSLToRGB(hue,saturation,lightness);
+                imagedata.data[y+0]=rgb[0];
+                imagedata.data[y+1]=rgb[1];
+                imagedata.data[y+2]=rgb[2];
             }
-          }
-
-    
-    const imageData = context.createImageData(300,200);
-    console.log(imageData.data.length);
-    console.log(pixels.length);
-    console.log(canvas.width,canvas.height);
-    // Iterate through every pixel
-    var c=0;
-
-    for (let i = 0; i < imageData.data.length; i += 4) {
-      // Modify pixel data
-      imageData.data[i + 0] = 255;  // R value
-      imageData.data[i + 1] = pixels[c][1];    // G value
-      imageData.data[i + 2] = pixels[c][2];  // B value
-      imageData.data[i + 3] = pixels[c][3];  // A value
-      c++;
-    }
-
-    // Draw image data to the canvas
-    context.putImageData(imageData, 0, 0);
+          context.putImageData(imagedata,0,0);
 
 }
-
-
-
-
-
 
 
   //   document.getElementById("_c").onchange = function () {
@@ -363,32 +261,32 @@ function RGBToHSL(r, g, b){
 
 
 
-  //  function cmyk2rgb(c, m, y, k){
-  //     c = (c / 100);
-  //     m = (m / 100);
-  //     y = (y / 100);
-  //     k = (k / 100);
-      
-  //     c = c * (1 - k) + k;
-  //     m = m * (1 - k) + k;
-  //     y = y * (1 - k) + k;
-      
-  //     var r = 1 - c;
-  //     var g = 1 - m;
-  //     var b = 1 - y;
-      
-      
-  //         r = Math.round(255 * r);
-  //         g = Math.round(255 * g);
-  //         b = Math.round(255 * b);
-      
-      
-  //     return {
-  //         r: r,
-  //         g: g,
-  //         b: b
-  //     }
-  // }
+   function cmyk2rgb(c, m, y, k){
+      c = (c / 100);
+      m = (m / 100);
+      y = (y / 100);
+      k = (k / 100);
+
+      c = c * (1 - k) + k;
+      m = m * (1 - k) + k;
+      y = y * (1 - k) + k;
+
+      var r = 1 - c;
+      var g = 1 - m;
+      var b = 1 - y;
+
+
+          r = Math.round(255 * r);
+          g = Math.round(255 * g);
+          b = Math.round(255 * b);
+
+
+      return {
+          r: r,
+          g: g,
+          b: b
+      }
+  }
 
   // function hsv2rgb(h, s, b) {
   //   s /= 100;
@@ -443,15 +341,15 @@ function RGBToHSL(r, g, b){
 }
 
 var rgb2cmyk = function(r, g, b){
-    var c = 1 - (r / 255);
+    var c = (r / 255);
     var m = 1 - (g / 255);
     var y = 1 - (b / 255);
     var k = Math.min(c, Math.min(m, y));
-    
+
     c = (c - k) / (1 - k);
     m = (m - k) / (1 - k);
     y = (y - k) / (1 - k);
-    
+
     c = isNaN(c) ? 0 : c;
     m = isNaN(m) ? 0 : m;
     y = isNaN(y) ? 0 : y;
@@ -463,7 +361,7 @@ var rgb2cmyk = function(r, g, b){
     m=Math.round(m);
     y=Math.round(y);
     k=Math.round(k);
-    
+
     return {
         c: c,
         m: m,

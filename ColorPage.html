@@ -54,16 +54,17 @@
                     </div>
                     <div class="scale">
                         <p><span class="scale-text">brightness</span></p>
-                        <input type="range" name="scale" id="zoom" min="1" max="100" step="1" value="1">
+                        <input type="range" name="scale" id="zoom_b" min="1" max="100" step="1" value="50">
                         <p><span class="number-zero">1</span><span class="number-hundred">100</span></p>
                     </div>
                     <div class="scale">
                         <p><span class="scale-text">saturation</span></p>
-                        <input type="range" name="scale" id="zoom" min="1" max="100" step="1" value="1">
+                        <input type="range" name="scale" id="zoom_s" min="1" max="100" step="1" value="50">
                         <p><span class="number-zero">1</span><span class="number-hundred">100</span></p>
                     </div>
                     <div class="Button_use">
                         <input type="submit" value="Use" onclick="use()">
+                        <input type="submit" value="Renew" onclick="change()">
                     </div>
                 </div>
             </div> 
@@ -74,7 +75,8 @@
                 <input type="file" id="picField">
                 <img src="" alt="" id="outImage">
                  <!-- <button class="upload_b1"><img width="50" height="50" src="images/upload_button.png" alt=""></button> -->
-                 <button class="download_b1"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+                 <a id='a' download = Image1 += '.png'></a>
+                 <button class="download_b"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
                 </div>
 
                 <div>
@@ -82,7 +84,8 @@
                 <input type="file" id="picField2">
                 <img src="" alt="" id="outImage2">
                 <!-- <button class="upload_b2"><img width="50" height="50" src="images/upload_button.png" alt=""></button> -->
-                <button class="download_b2"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+                <a id='a' download = Image1 += '.png'></a>
+                 <button class="download_b"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img2()"></button>
                 </div>
             
             </div>
