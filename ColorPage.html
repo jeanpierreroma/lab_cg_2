@@ -31,9 +31,9 @@
                             <span class="text" id="v_s">V</span>
                         </p>
                         <p>
-                            <input type="number" id="h" value="0">
-                            <input type="number" id="s" value="0">
-                            <input type="number" id="v" value="0">
+                            <input type="number" id="_h" value="0">
+                            <input type="number" id="_s" value="0">
+                            <input type="number" id="_v" value="0">
                         </p>
                     </div>
                     <div class="CMYK">
@@ -54,12 +54,12 @@
                     </div>
                     <div class="scale">
                         <p><span class="scale-text">brightness</span></p>
-                        <input type="range" name="scale" id="zoom" min="1" max="10" step="1" value="1">
+                        <input type="range" name="scale" id="zoom" min="1" max="100" step="1" value="1">
                         <p><span class="number-zero">1</span><span class="number-hundred">100</span></p>
                     </div>
                     <div class="scale">
                         <p><span class="scale-text">saturation</span></p>
-                        <input type="range" name="scale" id="zoom" min="1" max="10" step="1" value="1">
+                        <input type="range" name="scale" id="zoom" min="1" max="100" step="1" value="1">
                         <p><span class="number-zero">1</span><span class="number-hundred">100</span></p>
                     </div>
                     <div class="Button_use">
@@ -68,21 +68,23 @@
                 </div>
             </div> 
             <div class="right_part">  
-                <a id='a' download = Photo += '.png'></a>  
-                <canvas id="panel" width="1px" height="1px"></canvas>
+                <!-- <a id='a' download = Photo += '.png'></a>   -->
+                <div>
+                <canvas id="panel" width="300px" height="200px"></canvas>
                 <input type="file" id="picField">
-                <div>
-                <img src="" alt="" id="outImage" width="400" height="300">
+                <img src="" alt="" id="outImage">
+                 <!-- <button class="upload_b1"><img width="50" height="50" src="images/upload_button.png" alt=""></button> -->
+                 <button class="download_b1"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
                 </div>
-                <canvas id="panel2"  width="1px" height="1px"></canvas>
-                <input type="file" id="picField2">
+
                 <div>
-                <img src="" alt="" id="outImage2"width="400" height="300">
-            </div>
-                <!-- <button class="upload_b1"><img width="50" height="50" src="images/upload_button.png" alt=""></button> -->
-                <button class="download_b1"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+                <canvas id="panel2"  width="300px" height="200px"></canvas>
+                <input type="file" id="picField2">
+                <img src="" alt="" id="outImage2">
                 <!-- <button class="upload_b2"><img width="50" height="50" src="images/upload_button.png" alt=""></button> -->
                 <button class="download_b2"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+                </div>
+            
             </div>
         </div>
         <div class="bottom_part">
