@@ -221,7 +221,7 @@ function rgb2hsv (r, g, b) {
 }
 
 var rgb2cmyk = function(r, g, b){
-    var c = 1 - (r / 255);
+    var c = (r / 255);
     var m = 1 - (g / 255);
     var y = 1 - (b / 255);
     var k = Math.min(c, Math.min(m, y));

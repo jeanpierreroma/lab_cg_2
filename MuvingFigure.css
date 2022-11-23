@@ -288,7 +288,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .download_b {
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .sign {
@@ -392,4 +392,14 @@ input[type=range]::-webkit-slider-thumb {
 
     color: #fff;
     text-shadow: 1px 1px 4px #000;
+}
+
+
+.myCanvas {
+    width: 600px;
+    height: 400px;
+
+    margin: 20px 5%;
+
+    border: 1px solid #000;
 }
