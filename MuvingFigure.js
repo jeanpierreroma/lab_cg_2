@@ -176,10 +176,9 @@ drawCoordinatesScale(myScale);
 let A_x = 1, A_y = -1, C_x = 2, C_y = -2;
 let A = new Point(A_x * myScale, A_y * myScale);
 let C = new Point(C_x * myScale, C_y * myScale);
+let square = determiningTheCoordinatesOfTheSquare(A, C, myScale)
 function draw() {
     if (canvas.getContext) {
-        let square = determiningTheCoordinatesOfTheSquare(A, C, myScale)
-
         if(chooseVariant.value === '') {
             ctx.restore();
             ctx.clearRect(0, 0, canvas.width, canvas.height);
