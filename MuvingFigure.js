@@ -88,15 +88,17 @@ class Square {
         
         let newSquare = determiningTheCoordinatesOfTheSquare(newA, newC, myScale)
 
-        newSquare = newSquare.moving(newSquare, (-1) * _square.midPoint.x / myScale, _square.midPoint.y / myScale, myScale)
+        console.log(_square);
+        console.log(newSquare);
+        // newSquare = newSquare.moving(newSquare, (-1) * _square.midPoint.x / myScale, _square.midPoint.y / myScale, myScale)
 
         return newSquare;
     }
 
     //
     rotation(_square, angle, myScale) {
-        let tmpMidPoint = _square.midPoint;
-        _square = _square.moving(_square, (-1) * _square.midPoint.x / myScale, _square.midPoint.y / myScale, myScale)
+        // let tmpMidPoint = _square.midPoint;
+        // _square = _square.moving(_square, (-1) * _square.midPoint.x / myScale, _square.midPoint.y / myScale, myScale)
 
         var A_array = [[_square.A.x / myScale, _square.A.y / myScale * (-1), 1]];
         var C_array = [[_square.C.x / myScale, _square.C.y / myScale * (-1), 1]];
@@ -114,7 +116,7 @@ class Square {
         
         let newSquare = determiningTheCoordinatesOfTheSquare(newA, newC, myScale)
 
-        newSquare = newSquare.moving(newSquare, tmpMidPoint.x / myScale, tmpMidPoint.y / myScale * (-1), myScale)
+        // newSquare = newSquare.moving(newSquare, tmpMidPoint.x / myScale, tmpMidPoint.y / myScale * (-1), myScale)
 
         // newSquare.drawSquare();
 
@@ -174,10 +176,7 @@ function MultiplyMatrix(A,B)
 //Не забувати про мінус до Y
 ctx.save();
 drawCoordinatesScale(myScale);
-let A_x = 1, A_y = -1, C_x = 2, C_y = -2;
-let A = new Point(A_x * myScale, A_y * myScale);
-let C = new Point(C_x * myScale, C_y * myScale);
-let square = determiningTheCoordinatesOfTheSquare(A, C, myScale)
+let square = null;
 function draw() {
     if (canvas.getContext) {
         if(chooseVariant.value === '') {
@@ -185,7 +184,10 @@ function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.save();
 
-            let A_x = 1, A_y = -1, C_x = 2, C_y = -2;
+            let A_x = Number.parseInt(document.getElementById('A_x').value), 
+                A_y = (-1) * Number.parseInt(document.getElementById('A_y').value), 
+                C_x = Number.parseInt(document.getElementById('C_x').value), 
+                C_y = (-1) * Number.parseInt(document.getElementById('C_y').value);
             let A = new Point(A_x * myScale, A_y * myScale);
             let C = new Point(C_x * myScale, C_y * myScale);
 
@@ -203,6 +205,9 @@ function draw() {
                 let n = document.getElementById('cy').value;
     
                 drawCoordinatesScale(myScale);
+
+                square = createIfNull(square);
+
                 square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
                 square.drawSquare();
             } else if(variantForOne.value === '2') {
@@ -214,6 +219,9 @@ function draw() {
                 let d = document.getElementById('scale_b').value;
 
                 drawCoordinatesScale(myScale);
+
+                square = createIfNull(square);
+
                 square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
                 square.drawSquare();
             } else {
@@ -224,6 +232,9 @@ function draw() {
                 let angle = document.getElementById('rotation-angle').value;
 
                 drawCoordinatesScale(myScale);
+
+                square = createIfNull(square);
+
                 square = square.rotation(square, Number.parseInt(angle), myScale);
                 square.drawSquare();
             }
@@ -598,6 +609,21 @@ function drawCoordinatesScale(grid_size) {
     }
 }
 
+//Створює квадрат, якщо його не існує
+function createIfNull(tmpSquare) {
+    if(tmpSquare == null) {
+        let A_x = Number.parseInt(document.getElementById('A_x').value), 
+            A_y = (-1) * Number.parseInt(document.getElementById('A_y').value), 
+            C_x = Number.parseInt(document.getElementById('C_x').value), 
+            C_y = (-1) * Number.parseInt(document.getElementById('C_y').value);
+        let A = new Point(A_x * myScale, A_y * myScale);
+        let C = new Point(C_x * myScale, C_y * myScale);
+
+        tmpSquare = determiningTheCoordinatesOfTheSquare(A, C, myScale);
+    }
+    return tmpSquare;
+}
+
 canvas.onwheel = function (e) {
     setTimeout(function(){
         if (e.deltaY > 0 && ((myScale - 0.5) >= 15)) {
@@ -611,9 +637,17 @@ canvas.onwheel = function (e) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
 
-    console.log(square)
+    // console.log(square)
     if(square != null) {
+        console.log("Here!")
         square.drawSquare()
     }
     drawCoordinatesScale(myScale);
+}
+
+function showDegree() {
+    let rangeDegree = document.getElementById('rotation-angle').value;
+
+    let degree = document.getElementById('degree');
+    degree.value = rangeDegree;
 }

@@ -30,13 +30,13 @@
                 <div class="form">
                     <div class="square">
                         <div class="left_coordinate">
-                            <input type="number" id="A_x" value="0.0" />
-                            <input type="number" id="A_y" value="0.0" />
+                            <input type="number" id="A_x" value="0" />
+                            <input type="number" id="A_y" value="0" />
                         </div>
                         <div class="square_figure"></div>
                         <div class="right_coordinate">
-                            <input type="number" id="C_x" value="0.0" />
-                            <input type="number" id="C_y" value="0.0" />
+                            <input type="number" id="C_x" value="0" />
+                            <input type="number" id="C_y" value="0" />
                         </div>
                     </div>
 
@@ -44,8 +44,8 @@
 
                     <div class="moving">
                         <p><span class="vector-text">vector:</span></p>
-                        <input type="number" id="cx" value="0.0" />
-                        <input type="number" name="cy" id="cy" value="0.0" />
+                        <input type="number" id="cx" value="0"/>
+                        <input type="number" id="cy" value="0"/>
                     </div>
 
                     <hr>
@@ -53,13 +53,15 @@
                     <div class="scale">
                         <div class="scale_a">
                             <span class="scale-text">a</span>
-                            <input type="range" name="scale" id="scale_a" min="0" max="3" step="0.2" value="1">
-                            <p><span class="number-zero">0</span><span class="number-hundred">3</span></p>
+                            <input type="number" id="scale_a" value="0"/>
+                            <!-- <input type="range" name="scale" id="scale_a" min="0" max="3" step="0.2" value="1">
+                            <p><span class="number-zero">0</span><span class="number-hundred">3</span></p> -->
                         </div>
                         <div class="scale_b">
                             <span class="scale-text">b</span>
-                            <input type="range" name="scale" id="scale_b" min="0" max="3" step="0.2" value="1">
-                            <p><span class="number-zero">0</span><span class="number-hundred">3</span></p>
+                            <input type="number" id="scale_b" value="0"/>
+                            <!-- <input type="range" name="scale" id="scale_b" min="0" max="3" step="0.2" value="1">
+                            <p><span class="number-zero">0</span><span class="number-hundred">3</span></p> -->
                         </div>
                     </div>
 
@@ -67,7 +69,8 @@
                     
                     <div class="rotation">
                         <p><span class="rotation-text">rotation-angle</span></p>
-                        <input type="range" name="scale" id="rotation-angle" min="1" max="360" step="1" value="1">
+                        <input type="range" name="scale" id="rotation-angle" min="1" max="360" step="1" value="1" onchange="showDegree()">
+                        <input type="number" id="degree" value="1"/>
                         <p><span class="number-one">1</span><span class="number-end-angle">360</span></p>
                     </div>
 

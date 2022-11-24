@@ -118,6 +118,10 @@ hr {
 }
 
 .scale {
+    display: flex;
+}
+.scale_a {
+    margin-right: 60px;
 }
 .scale-text {
     font-style: normal;
@@ -180,7 +184,7 @@ input[type=range]::-webkit-slider-thumb {
     margin-bottom: 10px;
 }
 .rotation input[type=range]  {
-    width: 450px;
+    width: 350px;
     -webkit-appearance: none;
     appearance: none;
 }
@@ -189,7 +193,7 @@ input[type=range]::-webkit-slider-thumb {
     text-shadow: 1px 1px 4px #000;
     font-size: 20px;
     
-    margin-right: 430px;
+    margin-right: 320px;
 }
 .number-end-angle {
     color: #fff;
