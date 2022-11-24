@@ -178,6 +178,17 @@ ctx.save();
 drawCoordinatesScale(myScale);
 let square = null;
 function draw() {
+
+    //square validation 
+    var a_x=document.getElementById("A_x").value;
+    var a_y=document.getElementById("A_y").value;
+    var c_x=document.getElementById("C_x").value;
+    var c_y=document.getElementById("C_y").value;
+    if(a_x==c_x&&a_y==c_y)
+        {
+            notificate();
+        }
+
     if (canvas.getContext) {
         if(chooseVariant.value === '') {
             ctx.restore();
@@ -672,6 +683,17 @@ function sign3() {
     } else {
         text.style.visibility ='hidden';
     }
+}
+
+function notificate() {
+    let text = document.getElementById('sign_text_error');
+    // document.getElementById('sign_text').style.visibility = "visible"
+    if(text.style.visibility === 'hidden') {
+        text.style.visibility ='visible';
+    } else {
+        text.style.visibility ='hidden';
+    }
+    text.t
 }
 
 const download_img = () => {
