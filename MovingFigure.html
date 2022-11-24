@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <title>MuvingFigure</title>
+    <title>MovingFigure</title>
 </head>
 <body onload="changeVariantOfTransformation()">
     <!-- BackGround -->
@@ -127,9 +127,15 @@
                 </div>
             </div>
             <div class="right_part">
-                <canvas class="myCanvas" id="tutorial"></canvas>
-                <a id='a' download = Figure += '.png'></a>
-                <button class="download_b"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+                <div class="wrappedCanvas">
+                    <canvas width="400" height="400" class="myCanvas" id="tutorial"></canvas>
+                </div>
+                <div class="buttons">
+                    <a id='a' download = Figure += '.png'></a>
+                    <button class="download_b"><img width="50" height="50" src="images/download_button.png" alt="" onclick="download_img()"></button>
+                    <button id="increase" class="button_scale" onclick="increaseScale()">+</button>
+                    <button id="reduce" class="button_scale" onclick="reduceScale()">-</button>
+                </div>
             </div>
         </div>
         <div class="bottom_part">

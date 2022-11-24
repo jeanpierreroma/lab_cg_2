@@ -1,9 +1,10 @@
-// const canvas = document.getElementById('tutorial');
-// const ctx = canvas.getContext('2d');
 const canvas = document.getElementById("tutorial");
 const ctx = canvas.getContext("2d");
 
 let myScale = 25;
+
+let indexForScaleArray = 2;
+const scaleArray = [10, 20, 25, 40, 50];
 const speed = 1;
 
 let chooseVariant = document.getElementById('myIterations');
@@ -178,7 +179,6 @@ ctx.save();
 drawCoordinatesScale(myScale);
 let square = null;
 function draw() {
-
     //square validation 
     var a_x=document.getElementById("A_x").value;
     var a_y=document.getElementById("A_y").value;
@@ -494,32 +494,32 @@ function determiningTheCoordinatesOfTheSquare(A, C, scale) {
 function drawCoordinatesScale(grid_size) {
     var canvas_width = canvas.width;
     var canvas_height = canvas.height;
-    var x_axis_distance_grid_lines = canvas_height/ (grid_size * 2);
-    var y_axis_distance_grid_lines = canvas_width/ (grid_size * 2);
+    var num_lines_x = Math.floor(canvas_height/grid_size);  //16  //25
+    var num_lines_y = Math.floor(canvas_width/grid_size);   //24   //37
+
+    var x_axis_distance_grid_lines = num_lines_x / 2; //8   //12,5
+    var y_axis_distance_grid_lines = num_lines_y / 2;  //12  //18.75
     var x_axis_starting_point = { number: 1, suffix: '\u03a0' };
     var y_axis_starting_point = { number: 1, suffix: '' };
 
-    var num_lines_x = Math.floor(canvas_height/grid_size);
-    var num_lines_y = Math.floor(canvas_width/grid_size);
-
     // Draw grid lines along X-axis
-    for(var i=0; i<=num_lines_x; i++) {
+    for(var i = 0; i <= num_lines_x; i++) {
         ctx.beginPath();
-        ctx.lineWidth = myScale / myScale;
+        ctx.lineWidth = 1;
         
         // If line represents X-axis draw in different color
         if(i == x_axis_distance_grid_lines) 
-            ctx.strokeStyle = "#000000";
+            ctx.strokeStyle = "rgba(0, 0, 0, 1)";
         else
-            ctx.strokeStyle = "#e9e9e9";
+            ctx.strokeStyle = "rgba(0, 0, 0, 0.5)";
         
         if(i == num_lines_x) {
             ctx.moveTo(0, grid_size*i);
             ctx.lineTo(canvas_width, grid_size*i);
         }
         else {
-            ctx.moveTo(0, grid_size*i+0.5);
-            ctx.lineTo(canvas_width, grid_size*i+0.5);
+            ctx.moveTo(0, grid_size*i + 0.5);
+            ctx.lineTo(canvas_width, grid_size*i + 0.5);
         }
         ctx.stroke();
     }
@@ -552,7 +552,7 @@ function drawCoordinatesScale(grid_size) {
     // Ticks marks along the positive X-axis
     for(i=1; i<(num_lines_y - y_axis_distance_grid_lines); i++) {
         ctx.beginPath();
-        ctx.lineWidth = myScale / myScale;
+        ctx.lineWidth = 1;
         ctx.strokeStyle = "#000000";
 
         // Draw a tick mark 6px long (-3 to 3)
@@ -561,7 +561,7 @@ function drawCoordinatesScale(grid_size) {
         ctx.stroke();
 
         // Text value at that point
-        ctx.font = `${myScale / 2}px Arial Narrow`;
+        ctx.font = `12px Arial Narrow`;
         ctx.textAlign = 'start';
         ctx.fillText(x_axis_starting_point.number*i, grid_size*i-2, 15);
     }
@@ -569,7 +569,7 @@ function drawCoordinatesScale(grid_size) {
     // Ticks marks along the negative X-axis
     for(i=1; i<y_axis_distance_grid_lines; i++) {
         ctx.beginPath();
-        ctx.lineWidth = myScale / myScale;
+        ctx.lineWidth = 1;
         ctx.strokeStyle = "#000000";
 
         // Draw a tick mark 6px long (-3 to 3)
@@ -578,7 +578,7 @@ function drawCoordinatesScale(grid_size) {
         ctx.stroke();
 
         // Text value at that point
-        ctx.font = `${myScale / 2}px Arial`;
+        ctx.font = `12px Arial`;
         ctx.textAlign = 'end';
         ctx.fillText(-x_axis_starting_point.number*i , -grid_size*i+3, 15);
     }
@@ -587,7 +587,7 @@ function drawCoordinatesScale(grid_size) {
     // Positive Y-axis of graph is negative Y-axis of the canvas
     for(i=1; i<(num_lines_x - x_axis_distance_grid_lines); i++) {
         ctx.beginPath();
-        ctx.lineWidth = myScale / myScale;
+        ctx.lineWidth = 1;
         ctx.strokeStyle = "#000000";
 
         // Draw a tick mark 6px long (-3 to 3)
@@ -596,7 +596,7 @@ function drawCoordinatesScale(grid_size) {
         ctx.stroke();
 
         // Text value at that point
-        ctx.font = `${myScale / 2}px Arial`;
+        ctx.font = `12px Arial`;
         ctx.textAlign = 'start';
         ctx.fillText(-y_axis_starting_point.number*i + y_axis_starting_point.suffix, 8, grid_size*i+3);
     }
@@ -614,7 +614,7 @@ function drawCoordinatesScale(grid_size) {
         ctx.stroke();
 
         // Text value at that point
-        ctx.font = `${myScale / 2}px Arial`;
+        ctx.font = `12px Arial`;
         ctx.textAlign = 'start';
         ctx.fillText(y_axis_starting_point.number*i + y_axis_starting_point.suffix, 8, -grid_size*i+3);
     }
@@ -633,27 +633,6 @@ function createIfNull(tmpSquare) {
         tmpSquare = determiningTheCoordinatesOfTheSquare(A, C, myScale);
     }
     return tmpSquare;
-}
-
-canvas.onwheel = function (e) {
-    setTimeout(function(){
-        if (e.deltaY > 0 && ((myScale - 0.5) >= 15)) {
-            console.log("Зменшити")
-            myScale = myScale - 0.5;
-        } else if (e.deltaY < 0 && myScale < 25) {
-            myScale = myScale + 2;
-        }
-    }, 500);
-    ctx.restore();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.save();
-
-    // console.log(square)
-    if(square != null) {
-        console.log("Here!")
-        square.drawSquare()
-    }
-    drawCoordinatesScale(myScale);
 }
 
 function sign1() {
@@ -708,4 +687,88 @@ function showDegree() {
 
     let degree = document.getElementById('degree');
     degree.value = rangeDegree;
+}
+
+
+function increaseScale() {
+    ctx.restore();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+
+    var wasChange = false;
+    var previous = myScale;
+
+    if(indexForScaleArray + 1 < scaleArray.length) {
+        indexForScaleArray++;
+        myScale = scaleArray[indexForScaleArray];
+
+        wasChange = true;
+    }
+
+    drawCoordinatesScale(myScale);
+    if(square != null && wasChange) {
+        
+        square.A.x /= previous;
+        square.A.y /= previous;
+        square.B.x /= previous;
+        square.B.y /= previous;
+        square.C.x /= previous;
+        square.C.y /= previous;
+        square.D.x /= previous;
+        square.D.y /= previous;
+
+        square.A.x *= myScale;
+        square.A.y *= myScale;
+        square.B.x *= myScale;
+        square.B.y *= myScale;
+        square.C.x *= myScale;
+        square.C.y *= myScale;
+        square.D.x *= myScale;
+        square.D.y *= myScale;
+
+        square.drawSquare();
+    }
+
+}
+function reduceScale() {
+    ctx.restore();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+
+    var wasChange = false;
+    var previous = myScale;
+
+    if(indexForScaleArray > 0) {
+        indexForScaleArray--;
+        myScale = scaleArray[indexForScaleArray];
+
+        wasChange = true;
+    }
+
+    drawCoordinatesScale(myScale);
+    if(square != null && wasChange) {
+        console.log(square);
+
+        square.A.x /= previous;
+        square.A.y /= previous;
+        square.B.x /= previous;
+        square.B.y /= previous;
+        square.C.x /= previous;
+        square.C.y /= previous;
+        square.D.x /= previous;
+        square.D.y /= previous;
+
+        square.A.x *= myScale;
+        square.A.y *= myScale;
+        square.B.x *= myScale;
+        square.B.y *= myScale;
+        square.C.x *= myScale;
+        square.C.y *= myScale;
+        square.D.x *= myScale;
+        square.D.y *= myScale;
+
+        console.log(square);
+        console.log(myScale);
+        square.drawSquare();
+    }
 }
