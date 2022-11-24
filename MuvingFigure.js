@@ -3,13 +3,14 @@
 const canvas = document.getElementById("tutorial");
 const ctx = canvas.getContext("2d");
 
-const myScale = 25;
+let myScale = 25;
 const speed = 1;
 
 let chooseVariant = document.getElementById('myIterations');
 let variantForOne = document.getElementById('myIterations_forOne');
 let variantForTwo = document.getElementById('myIterations_forTwo');
 let variantForThree = document.getElementById('myIterations_forThree');
+
 
 function changeVariantOfTransformation() {
     variantForOne.style.display = 'none';
@@ -170,9 +171,9 @@ function MultiplyMatrix(A,B)
     return C;
 }
 
+//Не забувати про мінус до Y
 ctx.save();
 drawCoordinatesScale(myScale);
-//Не забувати про мінус до Y
 let A_x = 1, A_y = -1, C_x = 2, C_y = -2;
 let A = new Point(A_x * myScale, A_y * myScale);
 let C = new Point(C_x * myScale, C_y * myScale);
@@ -184,6 +185,11 @@ function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.save();
 
+            let A_x = 1, A_y = -1, C_x = 2, C_y = -2;
+            let A = new Point(A_x * myScale, A_y * myScale);
+            let C = new Point(C_x * myScale, C_y * myScale);
+
+            square = determiningTheCoordinatesOfTheSquare(A, C, myScale)
 
             drawCoordinatesScale(myScale);
             square.drawSquare();
@@ -477,7 +483,7 @@ function drawCoordinatesScale(grid_size) {
     // Draw grid lines along X-axis
     for(var i=0; i<=num_lines_x; i++) {
         ctx.beginPath();
-        ctx.lineWidth = 1;
+        ctx.lineWidth = myScale / myScale;
         
         // If line represents X-axis draw in different color
         if(i == x_axis_distance_grid_lines) 
@@ -524,7 +530,7 @@ function drawCoordinatesScale(grid_size) {
     // Ticks marks along the positive X-axis
     for(i=1; i<(num_lines_y - y_axis_distance_grid_lines); i++) {
         ctx.beginPath();
-        ctx.lineWidth = 1;
+        ctx.lineWidth = myScale / myScale;
         ctx.strokeStyle = "#000000";
 
         // Draw a tick mark 6px long (-3 to 3)
@@ -533,7 +539,7 @@ function drawCoordinatesScale(grid_size) {
         ctx.stroke();
 
         // Text value at that point
-        ctx.font = '9px Arial';
+        ctx.font = `${myScale / 2}px Arial Narrow`;
         ctx.textAlign = 'start';
         ctx.fillText(x_axis_starting_point.number*i, grid_size*i-2, 15);
     }
@@ -541,7 +547,7 @@ function drawCoordinatesScale(grid_size) {
     // Ticks marks along the negative X-axis
     for(i=1; i<y_axis_distance_grid_lines; i++) {
         ctx.beginPath();
-        ctx.lineWidth = 1;
+        ctx.lineWidth = myScale / myScale;
         ctx.strokeStyle = "#000000";
 
         // Draw a tick mark 6px long (-3 to 3)
@@ -550,7 +556,7 @@ function drawCoordinatesScale(grid_size) {
         ctx.stroke();
 
         // Text value at that point
-        ctx.font = '9px Arial';
+        ctx.font = `${myScale / 2}px Arial`;
         ctx.textAlign = 'end';
         ctx.fillText(-x_axis_starting_point.number*i , -grid_size*i+3, 15);
     }
@@ -559,7 +565,7 @@ function drawCoordinatesScale(grid_size) {
     // Positive Y-axis of graph is negative Y-axis of the canvas
     for(i=1; i<(num_lines_x - x_axis_distance_grid_lines); i++) {
         ctx.beginPath();
-        ctx.lineWidth = 1;
+        ctx.lineWidth = myScale / myScale;
         ctx.strokeStyle = "#000000";
 
         // Draw a tick mark 6px long (-3 to 3)
@@ -568,7 +574,7 @@ function drawCoordinatesScale(grid_size) {
         ctx.stroke();
 
         // Text value at that point
-        ctx.font = '9px Arial';
+        ctx.font = `${myScale / 2}px Arial`;
         ctx.textAlign = 'start';
         ctx.fillText(-y_axis_starting_point.number*i + y_axis_starting_point.suffix, 8, grid_size*i+3);
     }
@@ -577,7 +583,7 @@ function drawCoordinatesScale(grid_size) {
     // Negative Y-axis of graph is positive Y-axis of the canvas
     for(i=1; i<x_axis_distance_grid_lines; i++) {
         ctx.beginPath();
-        ctx.lineWidth = 1;
+        ctx.lineWidth = myScale / myScale;
         ctx.strokeStyle = "#000000";
 
         // Draw a tick mark 6px long (-3 to 3)
@@ -586,8 +592,28 @@ function drawCoordinatesScale(grid_size) {
         ctx.stroke();
 
         // Text value at that point
-        ctx.font = '9px Arial';
+        ctx.font = `${myScale / 2}px Arial`;
         ctx.textAlign = 'start';
         ctx.fillText(y_axis_starting_point.number*i + y_axis_starting_point.suffix, 8, -grid_size*i+3);
     }
+}
+
+canvas.onwheel = function (e) {
+    setTimeout(function(){
+        if (e.deltaY > 0 && ((myScale - 0.5) >= 15)) {
+            console.log("Зменшити")
+            myScale = myScale - 0.5;
+        } else if (e.deltaY < 0 && myScale < 25) {
+            myScale = myScale + 2;
+        }
+    }, 500);
+    ctx.restore();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+
+    console.log(square)
+    if(square != null) {
+        square.drawSquare()
+    }
+    drawCoordinatesScale(myScale);
 }
