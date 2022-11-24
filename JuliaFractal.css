@@ -292,8 +292,6 @@ input[type="color"]::-webkit-color-swatch {
     background: url(images/signt.png);
     background-size: 50px 50px;
     background-repeat: no-repeat;
-
-    border: 1px solid #000;
 }
 
 .sign_2 {
@@ -310,8 +308,6 @@ input[type="color"]::-webkit-color-swatch {
     background: url(images/signt.png);
     background-size: 50px 50px;
     background-repeat: no-repeat;
-
-    border: 1px solid #000;
 }
 
 .sign_text {
