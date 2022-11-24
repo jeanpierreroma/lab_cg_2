@@ -645,6 +645,42 @@ canvas.onwheel = function (e) {
     drawCoordinatesScale(myScale);
 }
 
+function sign1() {
+    let text = document.getElementById('sign_text');
+    // document.getElementById('sign_text').style.visibility = "visible"
+    if(text.style.visibility === 'hidden') {
+        text.style.visibility ='visible';
+    } else {
+        text.style.visibility ='hidden';
+    }
+}
+
+function sign2() {
+    let text = document.getElementById('sign_text2');
+    // document.getElementById('sign_text').style.visibility = "visible"
+    if(text.style.visibility === 'hidden') {
+        text.style.visibility ='visible';
+    } else {
+        text.style.visibility ='hidden';
+    }
+}
+function sign3() {
+    let text = document.getElementById('sign_text3');
+    // document.getElementById('sign_text').style.visibility = "visible"
+    if(text.style.visibility === 'hidden') {
+        text.style.visibility ='visible';
+    } else {
+        text.style.visibility ='hidden';
+    }
+}
+
+const download_img = () => {
+    const canvas = document.getElementById("tutorial");
+    const a = document.getElementById("a");
+    a.href = canvas.toDataURL("image/png");
+    a.click();
+};
+
 function showDegree() {
     let rangeDegree = document.getElementById('rotation-angle').value;
 
