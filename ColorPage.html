@@ -31,9 +31,9 @@
                             <span class="text" id="v_s">V</span>
                         </p>
                         <p>
-                            <input type="number" id="_h" value="0">
-                            <input type="number" id="_s" value="0">
-                            <input type="number" id="_v" value="0">
+                            <input type="number" id="_h" value="0" readonly>
+                            <input type="number" id="_s" value="0" readonly>
+                            <input type="number" id="_v" value="0" readonly>
                         </p>
                     </div>
                     <div class="CMYK">
@@ -44,10 +44,10 @@
                             <span class="text" id="k_s">K</span>
                         </p>
                         <p>
-                            <input type="number" id="_c" value="0">
-                            <input type="number" id="_m" value="0">
-                            <input type="number" id="_y" value="0">
-                            <input type="number" id="_k" value="0">
+                            <input type="number" id="_c" value="0" readonly>
+                            <input type="number" id="_m" value="0" readonly>
+                            <input type="number" id="_y" value="0" readonly>
+                            <input type="number" id="_k" value="0" readonly>
                         </p>
                        <div id="preview"></div>
                         <button id="start-button">Pick</button>
@@ -62,6 +62,7 @@
                         <input type="range" name="scale" id="zoom_s" min="1" max="100" step="1" value="50">
                         <p><span class="number-zero">1</span><span class="number-hundred">100</span></p>
                     </div>
+                    <canvas id="blue" ></canvas>
                     <div class="Button_use">
                         <input type="submit" value="Use" onclick="use()">
                         <input type="submit" value="Renew" onclick="change()">
@@ -71,6 +72,9 @@
             <div class="right_part">  
                 <!-- <a id='a' download = Photo += '.png'></a>   -->
                 <div>
+                    <div class="scheme_name1">
+                        <span>HSV</span>    
+                    </div>
                 <canvas id="panel" width="300px" height="200px"></canvas>
                 <input type="file" id="picField">
                 <img src="" alt="" id="outImage">
@@ -80,6 +84,9 @@
                 </div>
 
                 <div>
+                    <div class="scheme_name2">
+                        <span>CMYK</span>    
+                    </div>
                 <canvas id="panel2"  width="300px" height="200px"></canvas>
                 <input type="file" id="picField2">
                 <img src="" alt="" id="outImage2">
