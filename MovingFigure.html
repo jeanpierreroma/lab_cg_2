@@ -20,19 +20,17 @@
             <a href="ColorPage.html"><span class="Nav_colors">Colors</span></a>
             <a href="MovingFigure.html"><span class="Nav_move">Move</span></a>
         </div>
-            <button class="sign1"  onmouseover="sign1()"></button>
+            <button class="sign1" id="sign1" onmouseover="sign1()"></button>
             <div class="sign_text1" id="sign_text">print coordinate of square’s diagonal (-100; 100 - min and max for each), also left point must be less than right</div>
-            <div class="sign_text_error" id="sign_text_error">Wrong input. Squere must have size and dots couldnt be equel</div>
+            <div class="sign_text_error" id="sign_text_error">Wrong input. Square must have size and dots couldnt be equel</div>
             <button class="sign2" onmouseover="sign2()"></button>
-            <div class="sign_text2" id="sign_text2">just print coordinate of vectore (-100; 100 - min and max for each)</div>
-            <button class="sign3" onmouseover="sign3()"></button>
-            <div class="sign_text3" id="sign_text3">a and d just a coef, so use for each one</div>
+            <div class="sign_text2" id="sign_text2">just print coordinate of vectore</div>
+            <button class="sign3" id="sign3" onmouseover="sign3()"></button>
+            <div class="sign_text3" id="sign_text3">a and d just a coef, so use for each one, but not 0</div>
+            <div class="sign_text_error_2" id="sign_text_error_2">coef musn`t be 0</div>
+            <button class="sign4" onmouseover="sign4()"></button>
+            <div class="sign_text4" id="sign_text4">select the number of transformations and these transformations</div>
         <div class="data">
-            <!-- <button class="sign" onclick="sign()"></button>
-            <div class="sign_text" id="sign_text">in this formula: c - it’s complex number, z - it’s point on complex area</div>            
-            <button id="sign_button" class="sign_2" onclick="sign_2()"></button>
-            <div class="sign_text_2" id="sign_text_2">it’s a complex number, x is the real part of the complex number, y is the imaginary part</div>
-            <div class="sign_text_3" id="sign_text_3">Cx [-1; 1] and Cy [-1; 1]</div> -->
             <div class="left_part">
                 <div class="form">
                     <div class="square">
@@ -60,13 +58,13 @@
                     <div class="scale">
                         <div class="scale_a">
                             <span class="scale-text">a</span>
-                            <input type="number" id="scale_a" value="0"/>
+                            <input type="number" id="scale_a" value="1"/>
                             <!-- <input type="range" name="scale" id="scale_a" min="0" max="3" step="0.2" value="1">
                             <p><span class="number-zero">0</span><span class="number-hundred">3</span></p> -->
                         </div>
                         <div class="scale_b">
                             <span class="scale-text">b</span>
-                            <input type="number" id="scale_b" value="0"/>
+                            <input type="number" id="scale_b" value="1"/>
                             <!-- <input type="range" name="scale" id="scale_b" min="0" max="3" step="0.2" value="1">
                             <p><span class="number-zero">0</span><span class="number-hundred">3</span></p> -->
                         </div>

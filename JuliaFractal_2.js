@@ -169,8 +169,13 @@ function sign_2() {
 }
 function isInLimit(Cx, Cy) {
     let text = document.getElementById('sign_text_3');
+    // let sign = document.getElementById('sign2');
     if(Cx > 2 || Cx < -2 || Cy > 2 || Cy < -2) {
         text.style.visibility ='visible';
+        setTimeout(function(){
+            text.style.visibility ='hidden';
+            document.getElementById('sign2').style.background = 'url(images/signt.png)';
+        }, 7000);
         return false;
     }
     else {

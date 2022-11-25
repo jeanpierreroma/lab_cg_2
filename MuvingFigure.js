@@ -228,12 +228,17 @@ function draw() {
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
+                    // console.log(a == 0)
+                    // console.log(d == 0)
                     drawCoordinatesScale(myScale);
-
-                    square = createIfNull(square);
-
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-                    square.drawSquare();
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = createIfNull(square);
+    
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square.drawSquare();
+                    }
                 } else {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -256,17 +261,20 @@ function draw() {
 
                     let m = document.getElementById('cx').value;
                     let n = document.getElementById('cy').value;
+
+                    let a = document.getElementById('scale_a').value;
+                    let d = document.getElementById('scale_b').value;
         
                     square = createIfNull(square);
 
                     drawCoordinatesScale(myScale);
-                    square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
-                    
-                    let a = document.getElementById('scale_a').value;
-                    let d = document.getElementById('scale_b').value;
-
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-                    square.drawSquare();
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square.drawSquare();
+                    }
                 } else if(variantForTwo.value === '1,3') {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -291,18 +299,21 @@ function draw() {
         
                     drawCoordinatesScale(myScale);
 
-                    square = createIfNull(square);
-                    
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-                    
                     let m = document.getElementById('cx').value;
                     let n = document.getElementById('cy').value;
 
-                    square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
-                    square.drawSquare();
+                    square = createIfNull(square);
+
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                        square.drawSquare();
+                    }
                 } else if(variantForTwo.value === '2,3') {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -311,15 +322,19 @@ function draw() {
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
+                    let angle = document.getElementById('rotation-angle').value;
+
                     square = createIfNull(square);
 
                     drawCoordinatesScale(myScale);
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
 
-                    let angle = document.getElementById('rotation-angle').value;
-
-                    square = square.rotation(square, Number.parseInt(angle), myScale);
-                    square.drawSquare();
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square = square.rotation(square, Number.parseInt(angle), myScale);
+                        square.drawSquare();
+                    }
                 } else if(variantForTwo.value === '3,1') {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -345,16 +360,20 @@ function draw() {
 
                     let angle = document.getElementById('rotation-angle').value;
 
-                    square = createIfNull(square);
-
-                    drawCoordinatesScale(myScale);
-                    square = square.rotation(square, Number.parseInt(angle), myScale);
-
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-                    square.drawSquare();
+                    square = createIfNull(square);
+
+                    drawCoordinatesScale(myScale);
+
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.rotation(square, Number.parseInt(angle), myScale);
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square.drawSquare();
+                    }
                 }
             } else {
                 if(variantForThree.value === '1,2,3') {
@@ -365,20 +384,23 @@ function draw() {
                     let m = document.getElementById('cx').value;
                     let n = document.getElementById('cy').value;
 
-                    square = createIfNull(square);
-        
-                    drawCoordinatesScale(myScale);
-                    square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
-                    
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-                    
                     let angle = document.getElementById('rotation-angle').value;
 
-                    square = square.rotation(square, Number.parseInt(angle), myScale);                
-                    square.drawSquare();
+                    square = createIfNull(square);
+        
+                    drawCoordinatesScale(myScale);              
+                    
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square = square.rotation(square, Number.parseInt(angle), myScale);
+                        square.drawSquare();
+                    }
                 } else if(variantForThree.value === '1,3,2') {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -387,107 +409,123 @@ function draw() {
                     let m = document.getElementById('cx').value;
                     let n = document.getElementById('cy').value;
 
-                    square = createIfNull(square);
-        
-                    drawCoordinatesScale(myScale);
-                    square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
-                    
-                    let angle = document.getElementById('rotation-angle').value;
-
-                    square = square.rotation(square, Number.parseInt(angle), myScale);
-                    
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-                    square.drawSquare();
+                    let angle = document.getElementById('rotation-angle').value;
+
+                    square = createIfNull(square);
+        
+                    drawCoordinatesScale(myScale);              
+                    
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                        square = square.rotation(square, Number.parseInt(angle), myScale);
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square.drawSquare();
+                    }
                 } else if(variantForThree.value === '2,1,3') {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     ctx.save();
-        
-                    drawCoordinatesScale(myScale);
 
-                    square = createIfNull(square);
-                    
-                    let a = document.getElementById('scale_a').value;
-                    let d = document.getElementById('scale_b').value;
-
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-                    
                     let m = document.getElementById('cx').value;
                     let n = document.getElementById('cy').value;
 
-                    square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                    let a = document.getElementById('scale_a').value;
+                    let d = document.getElementById('scale_b').value;
+
                     let angle = document.getElementById('rotation-angle').value;
 
-                    square = square.rotation(square, Number.parseInt(angle), myScale);
-                    square.drawSquare();
+                    square = createIfNull(square);
+        
+                    drawCoordinatesScale(myScale);              
+                    
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                        square = square.rotation(square, Number.parseInt(angle), myScale);
+                        square.drawSquare();
+                    }
                 } else if(variantForThree.value === '2,3,1') {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     ctx.save();
 
+                    let m = document.getElementById('cx').value;
+                    let n = document.getElementById('cy').value;
+
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
-                    square = createIfNull(square);
-
-                    drawCoordinatesScale(myScale);
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-
                     let angle = document.getElementById('rotation-angle').value;
 
-                    square = square.rotation(square, Number.parseInt(angle), myScale);
-                    let m = document.getElementById('cx').value;
-                    let n = document.getElementById('cy').value;
+                    square = createIfNull(square);
         
-                    square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
-                    square.drawSquare();
+                    drawCoordinatesScale(myScale);              
+                    
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square = square.rotation(square, Number.parseInt(angle), myScale);
+                        square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                        square.drawSquare();
+                    }
                 } else if(variantForThree.value === '3,1,2') {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     ctx.save();
 
-                    let angle = document.getElementById('rotation-angle').value;
-
-                    square = createIfNull(square);
-
-                    drawCoordinatesScale(myScale);
-                    square = square.rotation(square, Number.parseInt(angle), myScale);
-
                     let m = document.getElementById('cx').value;
                     let n = document.getElementById('cy').value;
-        
-                    square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
-                    
+
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
-                    square.drawSquare();
+                    let angle = document.getElementById('rotation-angle').value;
+
+                    square = createIfNull(square);
+        
+                    drawCoordinatesScale(myScale);              
+                    
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.rotation(square, Number.parseInt(angle), myScale);
+                        square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square.drawSquare();
+                    }
                 } else {
                     ctx.restore();
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     ctx.save();
 
-                    let angle = document.getElementById('rotation-angle').value;
-
-                    square = createIfNull(square);
-
-                    drawCoordinatesScale(myScale);
-                    square = square.rotation(square, Number.parseInt(angle), myScale);
+                    let m = document.getElementById('cx').value;
+                    let n = document.getElementById('cy').value;
 
                     let a = document.getElementById('scale_a').value;
                     let d = document.getElementById('scale_b').value;
 
-                    square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                    let angle = document.getElementById('rotation-angle').value;
 
-                    let m = document.getElementById('cx').value;
-                    let n = document.getElementById('cy').value;
+                    square = createIfNull(square);
         
-                    square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
-                    square.drawSquare();
+                    drawCoordinatesScale(myScale);              
+                    
+                    if(a == 0 || d == 0) {
+                        notificate_2();
+                    } else {
+                        square = square.rotation(square, Number.parseInt(angle), myScale);
+                        square = square.scaling(square, Number.parseFloat(a), Number.parseFloat(d), myScale);
+                        square = square.moving(square, Number.parseFloat(m), Number.parseFloat(n), myScale);
+                        square.drawSquare();
+                    }
                 }
             }
         }
@@ -691,16 +729,45 @@ function sign3() {
         text.style.visibility ='hidden';
     }
 }
-
-function notificate() {
-    let text = document.getElementById('sign_text_error');
+function sign4() {
+    let text = document.getElementById('sign_text4');
     // document.getElementById('sign_text').style.visibility = "visible"
     if(text.style.visibility === 'hidden') {
         text.style.visibility ='visible';
     } else {
         text.style.visibility ='hidden';
     }
-    text.t
+}
+
+function notificate() {
+    let text = document.getElementById('sign_text_error');
+    // document.getElementById('sign_text').style.visibility = "visible"
+    if(text.style.visibility === 'hidden') {
+        text.style.visibility ='visible';
+        document.getElementById('sign1').style.backgroundImage = 'url(images/error_sign.png)';
+        setTimeout(function(){
+            text.style.visibility = 'hidden';
+            document.getElementById('sign1').style.backgroundImage = 'url(images/signt.png)';
+        }, 7000);
+        // background: url(images/signt.png);
+    } else {
+        text.style.visibility ='hidden';
+    }
+}
+function notificate_2() {
+    let text = document.getElementById('sign_text_error_2');
+    // document.getElementById('sign_text').style.visibility = "visible"
+    if(text.style.visibility === 'hidden') {
+        text.style.visibility ='visible';
+        document.getElementById('sign3').style.backgroundImage = 'url(images/error_sign.png)';
+        setTimeout(function(){
+            text.style.visibility = 'hidden';
+            document.getElementById('sign3').style.backgroundImage = 'url(images/signt.png)';
+        }, 7000);
+        // background: url(images/signt.png);
+    } else {
+        text.style.visibility ='hidden';
+    }
 }
 
 const download_img = () => {

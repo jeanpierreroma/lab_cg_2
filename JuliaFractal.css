@@ -305,7 +305,8 @@ input[type="color"]::-webkit-color-swatch {
 
     cursor: pointer;
 
-    background: url(images/signt.png);
+    /* background: url(images/signt.png); */
+    background: url('images/signt.png');
     background-size: 50px 50px;
     background-repeat: no-repeat;
 }

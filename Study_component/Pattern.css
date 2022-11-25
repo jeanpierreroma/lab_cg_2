@@ -71,16 +71,14 @@ body {
 }
 .Text {
     width: 1000px;
-    height: 600px;
+    height: 550px;
 
     position: relative;
-    top: 125px;
+    top: 100px;
     margin: 0px auto;
 
     background: rgba(237, 237, 237, 0.78);
     border-radius: 73px;
-
-
 }
 .Text span {
     font-size: 50px;
